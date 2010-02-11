@@ -17,10 +17,13 @@ Web Interface
 De web interface heeft 2 doelen: Direct de hardware aansturen, of de AI Engine aanwijzingen en regels geven.
 
 - De web interface heeft hogere rechten, 'human intelligence' gaat boven de AI.
+- De web interface kan de regels (wetten) van de 'hardware layer' niet overtreden.
+- De web interface moet door leken te gebruiken zijn.
 
 
-Hardware
---------
+Hardware Interface
+------------------
 Abstracte Interface voor communicatie met de hardware (de echte wereld/verkeer)
 
-- Implementeerd regels, zodat verkeer *nooit* kan botsen.
+- Implementeerd regels (wetten), zodat verkeer *nooit* kan botsen.
+- Heeft een verbinding met de hardware, en communiceert hiermee.
