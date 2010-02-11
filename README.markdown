@@ -9,7 +9,7 @@ Project P3
 
 AI Engine
 ---------
-Een AI (Arteficial Intelligence) Engine, die de intelligentie heeft om zo weinig mogelijk opstoppingen te veroorzaken. Deze communiceert met de hardware interface om informatie over de huidige situatie te krijgen.
+Een AI (Artificial Intelligence) Engine, die de intelligentie heeft om zo weinig mogelijk opstoppingen te veroorzaken. Deze communiceert met de hardware interface om informatie over de huidige situatie te krijgen.
 
 
 Web Interface
