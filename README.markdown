@@ -1,16 +1,15 @@
 Project P3
 ==========
 
-* Project Leider:  Chris
+* Project Leider:  Chris Mens
 * Quality Manager: Pieter Kokx
-* Rapporteur:      Bram
-* Archivaris:      Jeroen
-* Overige Leden:   Rens
+* Rapporteur:      Bram Laar
+* Archivaris:      Jeroen van Geel
+* Overige Leden:   Rens Joosten
 
-2 'besturingsmechanismen'
--------------------------
-AI engine
-Web Interface
+AI Engine
+---------
+Een AI (Arteficial Intelligence) Engine, die de intelligentie heeft om zo weinig mogelijk opstoppingen te veroorzaken. Deze communiceert met de hardware interface om informatie over de huidige situatie te krijgen.
 
 
 Web Interface
