@@ -1,11 +1,11 @@
 Project P3
 ==========
 
-Project Leider:  Chris
-Quality Manager: Pieter Kokx
-Rapporteur:      Bram
-Archivaris:      Jeroen
-Andere Gozer:    Rens
+* Project Leider:  Chris
+* Quality Manager: Pieter Kokx
+* Rapporteur:      Bram
+* Archivaris:      Jeroen
+* Andere Gozer:    Rens
 
 2 'besturingsmechanismen'
 -------------------------
