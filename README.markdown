@@ -27,3 +27,7 @@ Abstracte Interface voor communicatie met de hardware (de echte wereld/verkeer)
 
 - Implementeerd regels (wetten), zodat verkeer *nooit* kan botsen.
 - Heeft een verbinding met de hardware, en communiceert hiermee.
+
+Applicatie design in layers
+---------------------------
+![Applicatie design in layers](http://github.com/kokx/fhict-proftaak3/raw/master/layers.png)
