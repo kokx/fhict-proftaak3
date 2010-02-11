@@ -5,7 +5,7 @@ Project P3
 * Quality Manager: Pieter Kokx
 * Rapporteur:      Bram
 * Archivaris:      Jeroen
-* Andere Gozer:    Rens
+* Overige Leden:   Rens
 
 2 'besturingsmechanismen'
 -------------------------
