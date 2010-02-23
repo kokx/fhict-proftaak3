@@ -4,7 +4,7 @@ De TrafficSolver van TraffiX
 
 * Project Leider:  Chris Mens
 * Quality Manager: Pieter Kokx
-* Rapporteur:      Bram Laar
+* Rapporteur:      Bram Wijnands
 * Archivaris:      Jeroen van Geel
 * Overige Leden:   Rens Joosten
 
