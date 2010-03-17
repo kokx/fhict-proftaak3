@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("fhict-proftaak3")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Midoro")]
+[assembly: AssemblyCompany("TraffiX")]
 [assembly: AssemblyProduct("fhict-proftaak3")]
-[assembly: AssemblyCopyright("Copyright © Midoro 2010")]
+[assembly: AssemblyCopyright("Copyright © TraffiX 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
