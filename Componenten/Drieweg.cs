@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace fhict_proftaak3.Componenten
@@ -11,7 +10,7 @@ namespace fhict_proftaak3.Componenten
 
         public Drieweg()
         {
-            this.kruispunten = new KruispuntWachtrij()[3];
+            this.kruispunten = new KruispuntWachtrij[3];
         }
 
         public void addAuto(Auto auto, IKruispunt afkomst)
@@ -23,9 +22,9 @@ namespace fhict_proftaak3.Componenten
         {
         }
 
-        public void addKruispunt(IKruispunt kruispunt)
+        public void addKruispunt(IKruispunt kruispunt, int pos)
         {
-            kruispunten.Add(new KruispuntWachtrij(kruispunt));
+            kruispunten[pos] = new KruispuntWachtrij(kruispunt);
         }
     }
 }
