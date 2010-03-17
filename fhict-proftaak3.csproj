@@ -48,6 +48,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Componenten\Auto.cs" />
+    <Compile Include="Componenten\Drieweg.cs" />
+    <Compile Include="Componenten\IKruispunt.cs" />
+    <Compile Include="Componenten\KruispuntWachtrij.cs" />
     <Compile Include="Properties\Resources1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
