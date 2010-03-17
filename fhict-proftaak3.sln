@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fhict-proftaak3", "fhict-proftaak3.csproj", "{C98A6417-FC2F-4B38-BE08-985E688A3778}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C98A6417-FC2F-4B38-BE08-985E688A3778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C98A6417-FC2F-4B38-BE08-985E688A3778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C98A6417-FC2F-4B38-BE08-985E688A3778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C98A6417-FC2F-4B38-BE08-985E688A3778}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = RegelingApplication.csproj
+	EndGlobalSection
+EndGlobal
