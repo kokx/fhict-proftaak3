@@ -28,6 +28,8 @@ namespace fhict_proftaak3
                 this.removeKruispuntForm(i);
             }
             //Toevoegen Locatie 1
+            if (comboBox1.Text == "Geen")
+                this.removeKruispuntForm(0);
             if (comboBox1.Text == "Type 1")
                 this.insertKruispuntForm(0, tkp1, 0, 0, 484, 339);
             if (comboBox1.Text == "Type 2")
@@ -37,6 +39,8 @@ namespace fhict_proftaak3
             if (comboBox1.Text == "Type 4")
                 this.insertKruispuntForm(0, tkp4, 0, 0, 484, 339);
             //Toevoegen Locatie 2
+            if (comboBox2.Text == "Geen")
+                this.removeKruispuntForm(1);
             if (comboBox2.Text == "Type 1")
                 this.insertKruispuntForm(1, tkp1, 484, 0, 484, 339);
             if (comboBox2.Text == "Type 2")
@@ -46,6 +50,8 @@ namespace fhict_proftaak3
             if (comboBox2.Text == "Type 4")
                 this.insertKruispuntForm(1, tkp4, 484, 0, 484, 339);
             //Toevoegen Locatie 3
+            if (comboBox3.Text == "Geen")
+                this.removeKruispuntForm(2);
             if (comboBox3.Text == "Type 1")
                 this.insertKruispuntForm(2, tkp1, 0, 339, 484, 339);
             if (comboBox3.Text == "Type 2")
@@ -54,11 +60,17 @@ namespace fhict_proftaak3
                 this.insertKruispuntForm(2, tkp3, 0, 339, 484, 339);
             if (comboBox3.Text == "Type 4")
                 this.insertKruispuntForm(2, tkp4, 0, 339, 484, 339);
-
-            //this.insertKruispuntForm(0, tkp1, 0, 0, 484, 339);
-            //this.insertKruispuntForm(1, tkp2, 484, 0, 484, 339);
-            //this.insertKruispuntForm(2, tkp3, 0, 339, 484, 339);
-            //this.insertKruispuntForm(3, tkp4, 484, 339, 484, 339);
+            //Toevoegen Locatie 4
+            if (comboBox4.Text == "Geen")
+                this.removeKruispuntForm(3);
+            if (comboBox4.Text == "Type 1")
+                this.insertKruispuntForm(3, tkp1, 484, 339, 484, 339);
+            if (comboBox4.Text == "Type 2")
+                this.insertKruispuntForm(3, tkp2, 484, 339, 484, 339);
+            if (comboBox4.Text == "Type 3")
+                this.insertKruispuntForm(3, tkp3, 484, 339, 484, 339);
+            if (comboBox4.Text == "Type 4")
+                this.insertKruispuntForm(3, tkp4, 484, 339, 484, 339);
         }
 
         private void button2_Click(object sender, EventArgs e)
