@@ -29,7 +29,7 @@ namespace fhict_proftaak3.Componenten
         {
             foreach (KruispuntWachtrij wachtrij in wachtrijen) {
                 if (wachtrij.Remove(auto)) {
-                    return true;
+                    return;
                 }
             }
         }
@@ -46,10 +46,8 @@ namespace fhict_proftaak3.Componenten
                     wachtrijen[pos * 2] = new KruispuntWachtrij(kruispunt, kruispunten[i]);
                 }
             }
-                 
-            foreach (IKruispunt kruispunt in kruispunten) {
 
-            kruispunten[pos] = new KruispuntWachtrij(kruispunt);
+            kruispunten[pos] = kruispunt;
         }
     }
 }

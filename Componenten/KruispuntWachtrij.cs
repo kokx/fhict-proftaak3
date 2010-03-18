@@ -61,7 +61,7 @@ namespace fhict_proftaak3.Componenten
             autos.Add(auto);
         }
 
-        public void Remove(Auto auto)
+        public bool Remove(Auto auto)
         {
             if (autos.Contains(auto)) {
                 autos.Remove(auto);
