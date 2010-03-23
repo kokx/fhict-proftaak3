@@ -43,11 +43,20 @@
             this.tStoplicht7 = new VerkeersComponentenLibrary.TStoplicht();
             this.tStoplicht8 = new VerkeersComponentenLibrary.TStoplicht();
             this.tStoplicht9 = new VerkeersComponentenLibrary.TStoplicht();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.tKruispunt1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // tKruispunt1
             // 
+            this.tKruispunt1.Controls.Add(this.numericUpDown3);
+            this.tKruispunt1.Controls.Add(this.numericUpDown2);
+            this.tKruispunt1.Controls.Add(this.numericUpDown1);
             this.tKruispunt1.Controls.Add(this.tStoplicht9);
             this.tKruispunt1.Controls.Add(this.tStoplicht8);
             this.tKruispunt1.Controls.Add(this.tStoplicht7);
@@ -124,7 +133,7 @@
             // 
             this.tStoplicht4.AantalLampen = 3;
             this.tStoplicht4.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            this.tStoplicht4.Location = new System.Drawing.Point(12, 228);
+            this.tStoplicht4.Location = new System.Drawing.Point(24, 228);
             this.tStoplicht4.Name = "tStoplicht4";
             this.tStoplicht4.Size = new System.Drawing.Size(55, 15);
             this.tStoplicht4.TabIndex = 5;
@@ -213,18 +222,48 @@
             // tStoplicht9
             // 
             this.tStoplicht9.AantalLampen = 3;
-            this.tStoplicht9.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skUit;
+            this.tStoplicht9.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
             this.tStoplicht9.Location = new System.Drawing.Point(329, 283);
             this.tStoplicht9.Name = "tStoplicht9";
             this.tStoplicht9.Size = new System.Drawing.Size(15, 55);
             this.tStoplicht9.TabIndex = 14;
             this.tStoplicht9.WaarzitRood = VerkeersComponentenLibrary.TPositie.srBoven;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(36, 187);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.ReadOnly = true;
+            this.numericUpDown1.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown1.TabIndex = 21;
+            this.numericUpDown1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(264, 294);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.ReadOnly = true;
+            this.numericUpDown2.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown2.TabIndex = 22;
+            this.numericUpDown2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(410, 129);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.ReadOnly = true;
+            this.numericUpDown3.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown3.TabIndex = 23;
+            this.numericUpDown3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
             // TKP4
             // 
             this.ClientSize = new System.Drawing.Size(484, 339);
             this.Name = "TKP4";
             this.tKruispunt1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,6 +285,9 @@
         private VerkeersComponentenLibrary.TStoplicht tStoplicht7;
         private VerkeersComponentenLibrary.TStoplicht tStoplicht8;
         private VerkeersComponentenLibrary.TStoplicht tStoplicht9;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
 
 
 

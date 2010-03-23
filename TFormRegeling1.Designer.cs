@@ -38,6 +38,7 @@ namespace fhict_proftaak3
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -156,11 +157,22 @@ namespace fhict_proftaak3
             this.label4.TabIndex = 10;
             this.label4.Text = "Locatie 4";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1077, 253);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 35);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Nood Stop";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // TFormRegeling1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 684);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -183,6 +195,7 @@ namespace fhict_proftaak3
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.button3, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,6 +213,7 @@ namespace fhict_proftaak3
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
 
     }
 }

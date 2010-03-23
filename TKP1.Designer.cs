@@ -36,11 +36,35 @@
             this.tStoplicht6 = new VerkeersComponentenLibrary.TStoplicht();
             this.tStoplicht7 = new VerkeersComponentenLibrary.TStoplicht();
             this.tStoplicht8 = new VerkeersComponentenLibrary.TStoplicht();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
             this.tKruispunt1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             this.SuspendLayout();
             // 
             // tKruispunt1
             // 
+            this.tKruispunt1.Controls.Add(this.numericUpDown8);
+            this.tKruispunt1.Controls.Add(this.numericUpDown7);
+            this.tKruispunt1.Controls.Add(this.numericUpDown6);
+            this.tKruispunt1.Controls.Add(this.numericUpDown5);
+            this.tKruispunt1.Controls.Add(this.numericUpDown4);
+            this.tKruispunt1.Controls.Add(this.numericUpDown3);
+            this.tKruispunt1.Controls.Add(this.numericUpDown2);
+            this.tKruispunt1.Controls.Add(this.numericUpDown1);
             this.tKruispunt1.Controls.Add(this.tStoplicht8);
             this.tKruispunt1.Controls.Add(this.tStoplicht7);
             this.tKruispunt1.Controls.Add(this.tStoplicht6);
@@ -135,11 +159,91 @@
             this.tStoplicht8.TabIndex = 7;
             this.tStoplicht8.WaarzitRood = VerkeersComponentenLibrary.TPositie.srBoven;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(84, 174);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.ReadOnly = true;
+            this.numericUpDown1.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown1.TabIndex = 8;
+            this.numericUpDown1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(84, 200);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.ReadOnly = true;
+            this.numericUpDown2.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown2.TabIndex = 9;
+            this.numericUpDown2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(245, 268);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.ReadOnly = true;
+            this.numericUpDown3.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown3.TabIndex = 10;
+            this.numericUpDown3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(285, 268);
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.ReadOnly = true;
+            this.numericUpDown4.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown4.TabIndex = 11;
+            this.numericUpDown4.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // numericUpDown5
+            // 
+            this.numericUpDown5.Location = new System.Drawing.Point(351, 145);
+            this.numericUpDown5.Name = "numericUpDown5";
+            this.numericUpDown5.ReadOnly = true;
+            this.numericUpDown5.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown5.TabIndex = 12;
+            this.numericUpDown5.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Location = new System.Drawing.Point(351, 119);
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.ReadOnly = true;
+            this.numericUpDown6.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown6.TabIndex = 13;
+            this.numericUpDown6.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // numericUpDown7
+            // 
+            this.numericUpDown7.Location = new System.Drawing.Point(204, 66);
+            this.numericUpDown7.Name = "numericUpDown7";
+            this.numericUpDown7.ReadOnly = true;
+            this.numericUpDown7.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown7.TabIndex = 14;
+            this.numericUpDown7.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // numericUpDown8
+            // 
+            this.numericUpDown8.Location = new System.Drawing.Point(165, 66);
+            this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.ReadOnly = true;
+            this.numericUpDown8.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown8.TabIndex = 15;
+            this.numericUpDown8.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
             // TKP1
             // 
             this.ClientSize = new System.Drawing.Size(484, 339);
             this.Name = "TKP1";
             this.tKruispunt1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,6 +258,14 @@
         private VerkeersComponentenLibrary.TStoplicht tStoplicht5;
         private VerkeersComponentenLibrary.TStoplicht tStoplicht8;
         private VerkeersComponentenLibrary.TStoplicht tStoplicht7;
+        private System.Windows.Forms.NumericUpDown numericUpDown8;
+        private System.Windows.Forms.NumericUpDown numericUpDown7;
+        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
 
     }
 }
