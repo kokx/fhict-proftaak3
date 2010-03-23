@@ -13,22 +13,6 @@ namespace fhict_proftaak3.Componenten
     public class KruispuntWachtrij
     {
         /// <summary>
-        /// Afkomst kruispunt van deze wachtrij
-        /// </summary>
-        public IKruispunt Afkomst
-        {
-            get
-            {
-                return this.Afkomst;
-            }
-        }
-
-        /// <summary>
-        /// Afkomst kruispunt van deze wachtrij
-        /// </summary>
-        protected IKruispunt afkomst;
-
-        /// <summary>
         /// Richting kruispunt van deze wachtrij
         /// </summary>
         public IKruispunt Richting
@@ -47,27 +31,23 @@ namespace fhict_proftaak3.Componenten
         /// <summary>
         /// Auto's in deze wachtrij
         /// </summary>
-        protected List<Auto> autos;
+        protected Queue<Auto> autos;
 
 
-        public KruispuntWachtrij(IKruispunt afkomst, IKruispunt richting)
+        public KruispuntWachtrij(IKruispunt richting)
         {
-            this.afkomst = afkomst;
             this.richting = richting;
+            autos = new Queue<Auto>();
         }
 
         public void Add(Auto auto)
         {
-            autos.Add(auto);
+            autos.Enqueue(auto);
         }
 
-        public bool Remove(Auto auto)
+        public Auto shift()
         {
-            if (autos.Contains(auto)) {
-                autos.Remove(auto);
-                return true;
-            }
-            return false;
+            return autos.Dequeue();
         }
     }
 }
