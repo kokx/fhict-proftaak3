@@ -42,19 +42,23 @@ namespace fhict_proftaak3.Componenten
             kruispunten[pos] = kruispunt;
         }
 
-        public void simulate(int ticks)
+        public void Simulate(int ticks)
         {
             for (int i = 0; i < ticks; i++) {
-                this.simulate();
+                Simulate();
             }
         }
 
-        public void simulate()
+        public void Simulate()
         {
             this.preSimulate(this, new EventArgs());
 
             ticks++;
             // execute one simulation round
+
+            foreach (IKruispunt kruispunt in kruispunten) {
+                kruispunt.Simulate();
+            }
 
             this.postSimulate(this, new EventArgs());
         }

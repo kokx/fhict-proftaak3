@@ -26,5 +26,10 @@ namespace fhict_proftaak3.Componenten
         {
             wachtrijen[pos] = new KruispuntWachtrij(kruispunt);
         }
+
+        public void Simulate()
+        {
+            // TODO: finish this method
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace fhict_proftaak3.Componenten
 {
-    public class Vierweg
+    public class Vierweg : IKruispunt
     {
         protected KruispuntWachtrij[] wachtrijen;
 
@@ -25,6 +25,10 @@ namespace fhict_proftaak3.Componenten
         public void addKruispunt(IKruispunt kruispunt, int pos)
         {
             wachtrijen[pos] = new KruispuntWachtrij(kruispunt);
+        }
+
+        public void Simulate()
+        {
         }
     }
 }
