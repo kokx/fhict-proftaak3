@@ -8,8 +8,6 @@ namespace fhict_proftaak3.Componenten
     {
         protected KruispuntWachtrij[] wachtrijen;
 
-        protected IKruispunt[] kruispunten;
-
         public Drieweg()
         {
             wachtrijen = new KruispuntWachtrij[4];
