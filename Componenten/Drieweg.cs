@@ -52,7 +52,16 @@ namespace fhict_proftaak3.Componenten
             getWachtrij(afkomst, auto.Richting).Add(auto);
         }
 
-        abstract public KruispuntWachtrij getWachtrij(Direction afkomst, Direction richting);
+        public KruispuntWachtrij getWachtrij(Direction afkomst, Direction richting)
+        {
+            foreach (KruispuntWachtrij wachtrij in wachtrijen) {
+                if ((wachtrij.From == afkomst) && (wachtrij.HasDirection(richting))) {
+                    return wachtrij;
+                }
+            }
+
+            return null;
+        }
 
         public void addKruispunt(IKruispunt kruispunt, Direction direction)
         {

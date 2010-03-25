@@ -58,6 +58,16 @@ namespace fhict_proftaak3.Componenten
             autos = new Queue<Auto>();
         }
 
+        public bool HasDirection(Direction direction)
+        {
+            foreach (Direction direct in directions) {
+                if (direction == direct) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void Add(Auto auto)
         {
             autos.Enqueue(auto);
