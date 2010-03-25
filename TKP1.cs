@@ -13,6 +13,7 @@ namespace fhict_proftaak3
         int status=0;
         public int Status 
         { get { return status; } }
+
         public TKP1()
         {
             InitializeComponent();

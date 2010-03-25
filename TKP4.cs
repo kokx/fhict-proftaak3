@@ -8,11 +8,36 @@ using System.Windows.Forms;
 
 namespace fhict_proftaak3
 {
-    public partial class TKP4 : VerkeersComponentenLibrary.TFormKruispunt
+    public partial class TKP4 :VerkeersComponentenLibrary.TFormKruispunt
     {
+        int status = 0;
+        public int Status
+        { get { return status; } }
+
         public TKP4()
         {
             InitializeComponent();
+        }
+
+        public void NieuweStatus()
+        {
+            status++;
+            switch (status)
+            {
+                case 1:
+                    NoodStop();
+                    tStoplicht9.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
+                    break;
+                case 2:
+                    NoodStop();
+                    tStoplicht3.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
+                    break;
+                case 3:
+                    NoodStop();
+                    tStoplicht4.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
+                    status = 0;
+                    break;
+            }
         }
 
         public void NoodStop()

@@ -12,10 +12,6 @@ namespace fhict_proftaak3
     {
         List<VerkeersComponentenLibrary.TFormKruispunt> kruispunten
             = new List<VerkeersComponentenLibrary.TFormKruispunt>();
-        TKP1 tkp1 = new TKP1();
-        TKP2 tkp2 = new TKP2();
-        TKP3 tkp3 = new TKP3();
-        TKP4 tkp4 = new TKP4();
 
         public TFormRegeling1()
         {
@@ -93,18 +89,63 @@ namespace fhict_proftaak3
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach (VerkeersComponentenLibrary.TFormKruispunt k in kruispunten)
+            timer1.Enabled = true;
+            foreach(VerkeersComponentenLibrary.TFormKruispunt k in kruispunten)
             {
-                //blabla
+                if (k is TKP1)
+                {
+                    TKP1 tkp1 = k as TKP1;
+                    tkp1.NieuweStatus();
+                }
+                if (k is TKP2)
+                {
+                    TKP2 tkp2 = k as TKP2;
+                    tkp2.NieuweStatus();
+                }
+                if (k is TKP3)
+                {
+                    TKP3 tkp3 = k as TKP3;
+                    tkp3.NieuweStatus();
+                }
+                if (k is TKP4)
+                {
+                    TKP4 tkp4 = k as TKP4;
+                    tkp4.NieuweStatus();
+                }
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             foreach (VerkeersComponentenLibrary.TFormKruispunt k in kruispunten)
             {
-                //BlaBlaBla
+                if (k is TKP1)
+                {
+                    TKP1 tkp1 = k as TKP1;
+                    tkp1.NoodStop();
+                }
+                if (k is TKP2)
+                {
+                    TKP2 tkp2 = k as TKP2;
+                    tkp2.NoodStop();
+                }
+                if (k is TKP3)
+                {
+                    TKP3 tkp3 = k as TKP3;
+                    tkp3.NoodStop();
+                }
+                if (k is TKP4)
+                {
+                    TKP4 tkp4 = k as TKP4;
+                    tkp4.NoodStop();
+                }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            button2_Click(sender, e);
         }
     }
 }

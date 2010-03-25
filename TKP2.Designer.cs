@@ -1,6 +1,6 @@
 ﻿namespace fhict_proftaak3
 {
-    partial class TKP2
+    partial class TKP2 : VerkeersComponentenLibrary.TFormKruispunt
     {
         /// <summary>
         /// Required designer variable.

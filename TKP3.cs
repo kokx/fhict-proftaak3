@@ -10,9 +10,38 @@ namespace fhict_proftaak3
 {
     public partial class TKP3 : VerkeersComponentenLibrary.TFormKruispunt
     {
+        int status = 0;
+        public int Status
+        { get { return status; } }
+
         public TKP3()
         {
             InitializeComponent();
+        }
+
+        public void NieuweStatus()
+        {
+            status++;
+            switch (status)
+            {
+                case 1:
+                    NoodStop();
+                    tStoplicht3.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
+                    break;
+                case 2:
+                    NoodStop();
+                    tStoplicht4.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
+                    break;
+                case 3:
+                    NoodStop();
+                    tStoplicht5.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
+                    break;
+                case 4:
+                    NoodStop();
+                    tStoplicht6.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
+                    status = 0;
+                    break;
+            }
         }
 
         public void NoodStop()
