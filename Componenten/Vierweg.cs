@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,11 +6,15 @@ namespace fhict_proftaak3.Componenten
 {
     public abstract class Vierweg : IKruispunt
     {
+
         protected KruispuntWachtrij[] wachtrijen;
 
-        public Vierweg()
+        public KruispuntWachtrij[] Wachtrijen
         {
-            wachtrijen = new KruispuntWachtrij[4];
+            get
+            {
+                return wachtrijen;
+            }
         }
 
         public void addAuto(Auto auto, IKruispunt richting)
