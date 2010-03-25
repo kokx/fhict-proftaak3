@@ -7,8 +7,15 @@ namespace fhict_proftaak3.Componenten
     public class Drieweg : IKruispunt
     {
         protected KruispuntWachtrij[] wachtrijen;
+        
 
-        protected IKruispunt[] kruispunten;
+        public KruispuntWachtrij[] Wachtrijen
+        {
+            get 
+            {
+                return wachtrijen;
+            }
+        }
 
         public Drieweg()
         {

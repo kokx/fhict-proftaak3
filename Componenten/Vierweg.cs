@@ -8,6 +8,14 @@ namespace fhict_proftaak3.Componenten
     {
         protected KruispuntWachtrij[] wachtrijen;
 
+        public KruispuntWachtrij[] Wachtrijen
+        {
+            get
+            {
+                return wachtrijen;
+            }
+        }
+
         public Vierweg()
         {
             wachtrijen = new KruispuntWachtrij[4];
@@ -26,5 +34,7 @@ namespace fhict_proftaak3.Componenten
         {
             wachtrijen[pos] = new KruispuntWachtrij(kruispunt);
         }
+
+        
     }
 }
