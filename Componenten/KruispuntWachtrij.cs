@@ -33,6 +33,13 @@ namespace fhict_proftaak3.Componenten
         /// </summary>
         protected Queue<Auto> autos;
 
+        public Queue<Auto> Autos
+        {
+            get
+            {
+                return autos;
+            }
+        }
 
         public KruispuntWachtrij(IKruispunt richting)
         {
