@@ -6,9 +6,11 @@ namespace fhict_proftaak3.Componenten
 {
     public interface IKruispunt
     {
-        void addAuto(Auto auto, IKruispunt richting);
+        void addAuto(Auto auto, Direction afkomst);
 
         void addKruispunt(IKruispunt kruispunt, Direction direction);
+
+        KruispuntWachtrij getWachtrij(Direction afkomst, Direction richting);
 
         void Simulate();
     }

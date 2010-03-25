@@ -12,21 +12,6 @@ namespace fhict_proftaak3.Componenten
     /// </summary>
     public class KruispuntWachtrij
     {
-        /// <summary>
-        /// Richting kruispunt van deze wachtrij
-        /// </summary>
-        public IKruispunt Richting
-        {
-            get
-            {
-                return this.richting;
-            }
-        }
-
-        /// <summary>
-        /// Richting kruispunt van deze wachtrij
-        /// </summary>
-        protected IKruispunt richting;
 
         /// <summary>
         /// Auto's in deze wachtrij
@@ -41,9 +26,35 @@ namespace fhict_proftaak3.Componenten
             }
         }
 
-        public KruispuntWachtrij(IKruispunt richting)
+        protected Direction[] directions;
+
+        public Direction[] Directions
         {
-            this.richting = richting;
+            get
+            {
+                return directions;
+            }
+        }
+
+        protected Direction from;
+
+        public Direction From
+        {
+            get
+            {
+                return from;
+            }
+        }
+
+        protected IKruispunt kruispunt;
+
+
+        public KruispuntWachtrij(Direction[] directions, Direction from, IKruispunt kruispunt)
+        {
+            this.directions = directions;
+            this.from = from;
+            this.kruispunt = kruispunt;
+
             autos = new Queue<Auto>();
         }
 

@@ -28,14 +28,31 @@ namespace fhict_proftaak3.Componenten
         protected IKruispunt south;
 
 
-        public void addAuto(Auto auto, IKruispunt richting)
+        public void addAuto(Auto auto, Direction afkomst)
         {
-            foreach (KruispuntWachtrij wachtrij in wachtrijen) {
-                if (wachtrij.Richting == richting) {
-                    wachtrij.Add(auto);
-                }
+            Direction[] choose = new Direction[2];
+
+            switch (afkomst) {
+                case Direction.SOUTH:
+                    choose[0] = Direction.EAST;
+                    choose[1] = Direction.WEST;
+                    break;
+                case Direction.EAST:
+                    choose[0] = Direction.SOUTH;
+                    choose[1] = Direction.WEST;
+                    break;
+                case Direction.WEST:
+                    choose[0] = Direction.SOUTH;
+                    choose[1] = Direction.EAST;
+                    break;
             }
+
+            auto.kiesRichting(choose);
+
+            getWachtrij(afkomst, auto.Richting).Add(auto);
         }
+
+        abstract public KruispuntWachtrij getWachtrij(Direction afkomst, Direction richting);
 
         public void addKruispunt(IKruispunt kruispunt, Direction direction)
         {

@@ -8,14 +8,24 @@ namespace fhict_proftaak3.Componenten
     {
         private Random random;
 
+        protected Direction richting;
+
+        public Direction Richting
+        {
+            get
+            {
+                return richting;
+            }
+        }
+
         public Auto()
         {
             random = new Random();
         }
 
-        public Direction kiesRoute(Direction[] directions)
+        public void kiesRichting(Direction[] directions)
         {
-            return directions[random.Next(directions.Length)];
+            richting = directions[random.Next(directions.Length)];
         }
     }
 }
