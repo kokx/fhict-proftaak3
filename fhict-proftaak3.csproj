@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Componenten\Auto.cs" />
+    <Compile Include="Componenten\Direction.cs" />
     <Compile Include="Componenten\Drieweg.cs" />
     <Compile Include="Componenten\IKruispunt.cs" />
     <Compile Include="Componenten\Kruispunten\Type1.cs" />

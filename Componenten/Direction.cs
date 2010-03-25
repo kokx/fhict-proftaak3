@@ -4,7 +4,7 @@ using System.Text;
 
 namespace fhict_proftaak3.Componenten
 {
-    enum Direction
+    public enum Direction
     {
         EAST,
         WEST,

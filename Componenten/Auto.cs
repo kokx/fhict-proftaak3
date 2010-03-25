@@ -6,20 +6,16 @@ namespace fhict_proftaak3.Componenten
 {
     public class Auto
     {
-        private Random route;
+        private Random random;
 
-        public Auto(Random route)
+        public Auto()
         {
-            this.route = new Random();
-        }        
-                    
-
-        public int maakRoute(int aantalWegen)
-        {
-            return this.route.Next(aantalWegen);
-
+            random = new Random();
         }
 
-
+        public Direction kiesRoute(Direction[] directions)
+        {
+            return directions[random.Next(directions.Length)];
+        }
     }
 }
