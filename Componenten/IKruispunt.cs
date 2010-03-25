@@ -8,7 +8,7 @@ namespace fhict_proftaak3.Componenten
     {
         void addAuto(Auto auto, IKruispunt richting);
 
-        void addKruispunt(IKruispunt kruispunt, int pos);
+        void addKruispunt(IKruispunt kruispunt, Direction direction);
 
         void Simulate();
     }

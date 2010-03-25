@@ -17,6 +17,12 @@ namespace fhict_proftaak3.Componenten
             }
         }
 
+        protected IKruispunt east;
+        protected IKruispunt west;
+        protected IKruispunt north;
+        protected IKruispunt south;
+
+
         public void addAuto(Auto auto, IKruispunt richting)
         {
             foreach (KruispuntWachtrij wachtrij in wachtrijen) {
@@ -26,9 +32,22 @@ namespace fhict_proftaak3.Componenten
             }
         }
 
-        public void addKruispunt(IKruispunt kruispunt, int pos)
+        public void addKruispunt(IKruispunt kruispunt, Direction direction)
         {
-            wachtrijen[pos] = new KruispuntWachtrij(kruispunt);
+            switch (direction) {
+                case Direction.EAST:
+                    east = kruispunt;
+                    break;
+                case Direction.WEST:
+                    west = kruispunt;
+                    break;
+                case Direction.SOUTH:
+                    south = kruispunt;
+                    break;
+                case Direction.NORTH:
+                    north = kruispunt;
+                    break;
+            }
         }
 
         public void Simulate()

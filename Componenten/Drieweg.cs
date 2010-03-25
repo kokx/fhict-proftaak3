@@ -4,6 +4,12 @@ using System.Text;
 
 namespace fhict_proftaak3.Componenten
 {
+    /// <summary>
+    /// Drieweg kruispunt implementatie
+    /// 
+    /// Let op! Om het gemakkelijk te houden, heeft een Drieweg gewoon geen
+    /// noord richting, en geen positionering
+    /// </summary>
     public abstract class Drieweg : IKruispunt
     {
 
@@ -17,10 +23,10 @@ namespace fhict_proftaak3.Componenten
             }
         }
 
-        public Drieweg()
-        {
-            wachtrijen = new KruispuntWachtrij[4];
-        }
+        protected IKruispunt east;
+        protected IKruispunt west;
+        protected IKruispunt south;
+
 
         public void addAuto(Auto auto, IKruispunt richting)
         {
@@ -31,9 +37,19 @@ namespace fhict_proftaak3.Componenten
             }
         }
 
-        public void addKruispunt(IKruispunt kruispunt, int pos)
+        public void addKruispunt(IKruispunt kruispunt, Direction direction)
         {
-            wachtrijen[pos] = new KruispuntWachtrij(kruispunt);
+            switch (direction) {
+                case Direction.EAST:
+                    east = kruispunt;
+                    break;
+                case Direction.WEST:
+                    west = kruispunt;
+                    break;
+                case Direction.SOUTH:
+                    south = kruispunt;
+                    break;
+            }
         }
 
         public void Simulate()
