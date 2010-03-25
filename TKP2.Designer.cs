@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tSensor1 = new VerkeersComponentenLibrary.TSensor();
             this.tStoplicht1 = new VerkeersComponentenLibrary.TStoplicht();
             this.tStoplicht2 = new VerkeersComponentenLibrary.TStoplicht();
@@ -48,6 +49,7 @@
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.tEventQueue1 = new VerkeersComponentenLibrary.TEventQueue(this.components);
             this.tKruispunt1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -88,7 +90,7 @@
             // tSensor1
             // 
             this.tSensor1.AanKleur = System.Drawing.Color.Yellow;
-            this.tSensor1.Location = new System.Drawing.Point(142, 293);
+            this.tSensor1.Location = new System.Drawing.Point(142, 260);
             this.tSensor1.Name = "tSensor1";
             this.tSensor1.Size = new System.Drawing.Size(15, 15);
             this.tSensor1.Stand = VerkeersComponentenLibrary.TAanUit.sUit;
@@ -99,7 +101,7 @@
             // 
             this.tStoplicht1.AantalLampen = 2;
             this.tStoplicht1.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            this.tStoplicht1.Location = new System.Drawing.Point(122, 272);
+            this.tStoplicht1.Location = new System.Drawing.Point(122, 293);
             this.tStoplicht1.Name = "tStoplicht1";
             this.tStoplicht1.Size = new System.Drawing.Size(35, 15);
             this.tStoplicht1.TabIndex = 1;
@@ -188,7 +190,7 @@
             // tSensor4
             // 
             this.tSensor4.AanKleur = System.Drawing.Color.Yellow;
-            this.tSensor4.Location = new System.Drawing.Point(328, 34);
+            this.tSensor4.Location = new System.Drawing.Point(328, 64);
             this.tSensor4.Name = "tSensor4";
             this.tSensor4.Size = new System.Drawing.Size(15, 15);
             this.tSensor4.Stand = VerkeersComponentenLibrary.TAanUit.sUit;
@@ -220,7 +222,7 @@
             // 
             this.tStoplicht10.AantalLampen = 2;
             this.tStoplicht10.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            this.tStoplicht10.Location = new System.Drawing.Point(328, 55);
+            this.tStoplicht10.Location = new System.Drawing.Point(328, 34);
             this.tStoplicht10.Name = "tStoplicht10";
             this.tStoplicht10.Size = new System.Drawing.Size(35, 15);
             this.tStoplicht10.TabIndex = 13;
@@ -228,60 +230,48 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Location = new System.Drawing.Point(93, 174);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.ReadOnly = true;
             this.numericUpDown1.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown1.TabIndex = 16;
             this.numericUpDown1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Enabled = false;
             this.numericUpDown2.Location = new System.Drawing.Point(93, 200);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.ReadOnly = true;
             this.numericUpDown2.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown2.TabIndex = 17;
             this.numericUpDown2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Enabled = false;
             this.numericUpDown3.Location = new System.Drawing.Point(261, 293);
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.ReadOnly = true;
             this.numericUpDown3.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown3.TabIndex = 18;
             this.numericUpDown3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Enabled = false;
             this.numericUpDown4.Location = new System.Drawing.Point(350, 144);
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.ReadOnly = true;
             this.numericUpDown4.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown4.TabIndex = 19;
             this.numericUpDown4.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown5
             // 
-            this.numericUpDown5.Enabled = false;
             this.numericUpDown5.Location = new System.Drawing.Point(350, 118);
             this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.ReadOnly = true;
             this.numericUpDown5.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown5.TabIndex = 20;
             this.numericUpDown5.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Enabled = false;
             this.numericUpDown6.Location = new System.Drawing.Point(184, 29);
             this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.ReadOnly = true;
             this.numericUpDown6.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown6.TabIndex = 21;
             this.numericUpDown6.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
@@ -323,6 +313,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private VerkeersComponentenLibrary.TEventQueue tEventQueue1;
 
     }
 }

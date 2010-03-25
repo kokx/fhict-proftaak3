@@ -161,10 +161,8 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Location = new System.Drawing.Point(84, 174);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.ReadOnly = true;
             this.numericUpDown1.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown1.TabIndex = 8;
             this.numericUpDown1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
@@ -174,67 +172,54 @@
             this.numericUpDown2.Enabled = false;
             this.numericUpDown2.Location = new System.Drawing.Point(84, 200);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.ReadOnly = true;
             this.numericUpDown2.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown2.TabIndex = 9;
             this.numericUpDown2.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Enabled = false;
             this.numericUpDown3.Location = new System.Drawing.Point(245, 268);
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.ReadOnly = true;
             this.numericUpDown3.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown3.TabIndex = 10;
             this.numericUpDown3.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Enabled = false;
             this.numericUpDown4.Location = new System.Drawing.Point(285, 268);
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.ReadOnly = true;
             this.numericUpDown4.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown4.TabIndex = 11;
             this.numericUpDown4.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown5
             // 
-            this.numericUpDown5.Enabled = false;
             this.numericUpDown5.Location = new System.Drawing.Point(351, 145);
             this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.ReadOnly = true;
             this.numericUpDown5.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown5.TabIndex = 12;
             this.numericUpDown5.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Enabled = false;
             this.numericUpDown6.Location = new System.Drawing.Point(351, 119);
             this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.ReadOnly = true;
             this.numericUpDown6.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown6.TabIndex = 13;
             this.numericUpDown6.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown7
             // 
-            this.numericUpDown7.Enabled = false;
             this.numericUpDown7.Location = new System.Drawing.Point(204, 66);
             this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.ReadOnly = true;
             this.numericUpDown7.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown7.TabIndex = 14;
             this.numericUpDown7.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // numericUpDown8
             // 
-            this.numericUpDown8.Enabled = false;
             this.numericUpDown8.Location = new System.Drawing.Point(165, 66);
             this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.ReadOnly = true;
             this.numericUpDown8.Size = new System.Drawing.Size(34, 20);
             this.numericUpDown8.TabIndex = 15;
             this.numericUpDown8.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
