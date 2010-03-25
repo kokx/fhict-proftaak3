@@ -228,6 +228,7 @@
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Location = new System.Drawing.Point(93, 174);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.ReadOnly = true;
@@ -237,6 +238,7 @@
             // 
             // numericUpDown2
             // 
+            this.numericUpDown2.Enabled = false;
             this.numericUpDown2.Location = new System.Drawing.Point(93, 200);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.ReadOnly = true;
@@ -246,6 +248,7 @@
             // 
             // numericUpDown3
             // 
+            this.numericUpDown3.Enabled = false;
             this.numericUpDown3.Location = new System.Drawing.Point(261, 293);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.ReadOnly = true;
@@ -255,6 +258,7 @@
             // 
             // numericUpDown4
             // 
+            this.numericUpDown4.Enabled = false;
             this.numericUpDown4.Location = new System.Drawing.Point(350, 144);
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.ReadOnly = true;
@@ -264,6 +268,7 @@
             // 
             // numericUpDown5
             // 
+            this.numericUpDown5.Enabled = false;
             this.numericUpDown5.Location = new System.Drawing.Point(350, 118);
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.ReadOnly = true;
@@ -273,6 +278,7 @@
             // 
             // numericUpDown6
             // 
+            this.numericUpDown6.Enabled = false;
             this.numericUpDown6.Location = new System.Drawing.Point(184, 29);
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.ReadOnly = true;
