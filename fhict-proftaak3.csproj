@@ -66,9 +66,23 @@
     <Compile Include="Componenten\Auto.cs" />
     <Compile Include="Componenten\Drieweg.cs" />
     <Compile Include="Componenten\IKruispunt.cs" />
+    <Compile Include="Componenten\Kruispunten\Type1.cs" />
+    <Compile Include="Componenten\Kruispunten\Type2.cs" />
+    <Compile Include="Componenten\Kruispunten\Type3.cs" />
+    <Compile Include="Componenten\Kruispunten\Type4.cs" />
     <Compile Include="Componenten\KruispuntWachtrij.cs" />
     <Compile Include="Componenten\Simulator.cs" />
     <Compile Include="Componenten\Vierweg.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="TKP4.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,16 +140,10 @@
       <DependentUpon>TKP1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="VerkeersComponentenLibrary.dll" />

@@ -42,6 +42,10 @@ namespace fhict_proftaak3.Componenten
             kruispunten[pos] = kruispunt;
         }
 
+        /// <summary>
+        /// Do a number of simulation rounds
+        /// </summary>
+        /// <param name="ticks">the number of simulation rounds</param>
         public void Simulate(int ticks)
         {
             for (int i = 0; i < ticks; i++) {
@@ -49,12 +53,14 @@ namespace fhict_proftaak3.Componenten
             }
         }
 
+        /// <summary>
+        /// Do one simulation round
+        /// </summary>
         public void Simulate()
         {
             this.preSimulate(this, new EventArgs());
 
             ticks++;
-            // execute one simulation round
 
             foreach (IKruispunt kruispunt in kruispunten) {
                 kruispunt.Simulate();

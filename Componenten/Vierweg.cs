@@ -4,7 +4,7 @@ using System.Text;
 
 namespace fhict_proftaak3.Componenten
 {
-    public class Vierweg : IKruispunt
+    public abstract class Vierweg : IKruispunt
     {
         protected KruispuntWachtrij[] wachtrijen;
 
@@ -29,6 +29,9 @@ namespace fhict_proftaak3.Componenten
 
         public void Simulate()
         {
+            foreach (KruispuntWachtrij wachtrij in wachtrijen) {
+                // check de kleur van het stoplicht
+            }
         }
     }
 }
