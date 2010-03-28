@@ -23,6 +23,11 @@ namespace fhict_proftaak3.Componenten
             random = new Random();
         }
 
+        public Auto(Random random)
+        {
+            this.random = random;
+        }
+
         public void kiesRichting(Direction[] directions)
         {
             richting = directions[random.Next(directions.Length)];
