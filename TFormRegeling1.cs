@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using fhict_proftaak3.Componenten;
 
 namespace fhict_proftaak3
 {
@@ -87,8 +88,19 @@ namespace fhict_proftaak3
             else { kruispunten.Add(null); }
         }
 
+        void simulator_postSimulate(object sender, EventArgs e)
+        {
+            MessageBox.Show("I am dishonored!");
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
+            Simulator simulator = new Simulator();
+
+            simulator.postSimulate += new EventHandler(simulator_postSimulate);
+
+            simulator.Simulate(10);
+            /*
             timer1.Enabled = true;
             foreach(VerkeersComponentenLibrary.TFormKruispunt k in kruispunten)
             {
@@ -113,6 +125,7 @@ namespace fhict_proftaak3
                     tkp4.NieuweStatus();
                 }
             }
+            */
         }
 
         private void button3_Click(object sender, EventArgs e)

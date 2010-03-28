@@ -73,7 +73,7 @@ namespace fhict_proftaak3.Componenten
         public KruispuntWachtrij getWachtrij(Direction afkomst, Direction richting)
         {
             foreach (KruispuntWachtrij wachtrij in wachtrijen) {
-                if ((wachtrij.From == afkomst) && (wachtrij.HasDirection(richting))) {
+                if ((null != wachtrij) && (wachtrij.From == afkomst) && (wachtrij.HasDirection(richting))) {
                     return wachtrij;
                 }
             }
@@ -102,6 +102,9 @@ namespace fhict_proftaak3.Componenten
         public void Simulate()
         {
             foreach (KruispuntWachtrij wachtrij in wachtrijen) {
+                if (null == wachtrij) {
+                    continue;
+                }
                 switch (wachtrij.Light) {
                     case Light.GREEN:
                         // ok, great, pop the car from the Queue and let it

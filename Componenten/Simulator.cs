@@ -129,7 +129,9 @@ namespace fhict_proftaak3.Componenten
         /// </summary>
         public void Simulate()
         {
-            this.preSimulate(this, new EventArgs());
+            if (null != preSimulate) {
+                preSimulate(this, new EventArgs());
+            }
 
             ticks++;
 
@@ -137,7 +139,9 @@ namespace fhict_proftaak3.Componenten
                 kruispunt.Simulate();
             }
 
-            this.postSimulate(this, new EventArgs());
+            if (null != postSimulate) {
+                postSimulate(this, new EventArgs());
+            }
         }
     }
 }

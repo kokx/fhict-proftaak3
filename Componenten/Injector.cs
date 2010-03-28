@@ -52,6 +52,8 @@ namespace fhict_proftaak3.Componenten
 
         public Injector(List<Auto> autos)
         {
+            this.autos = new Queue<Auto>();
+
             foreach (Auto auto in autos) {
                 this.autos.Enqueue(auto);
             }
@@ -79,34 +81,50 @@ namespace fhict_proftaak3.Componenten
             return null;
         }
 
+        private Direction getOppositeDirection(Direction direction)
+        {
+            Direction oppositeDirection;
+            switch (direction) {
+                case Direction.NORTH:
+                    oppositeDirection = Direction.SOUTH;
+                    break;
+                case Direction.SOUTH:
+                    oppositeDirection = Direction.NORTH;
+                    break;
+                case Direction.EAST:
+                    oppositeDirection = Direction.WEST;
+                    break;
+                case Direction.WEST:
+                default:
+                    oppositeDirection = Direction.EAST;
+                    break;
+            }
+
+            return oppositeDirection;
+        }
+
+
         /// <summary>
         /// Injecteer autos in de verbindingen
         /// </summary>
         public void Simulate()
         {
-            // zolang we 3x zo veel autos hierin hebben dan kruispunten,
-            // blijven we er 1 aan elk van de kruispunten toevoegen per
-            // simulatie
             if ((autos.Count) * 3 > kruispunten.Count) {
+                // zolang we 3x zo veel autos hierin hebben dan kruispunten,
+                // blijven we er 1 aan elk van de kruispunten toevoegen per
+                // simulatieronde
                 foreach (KruispuntDirection kruispuntDirection in kruispunten) {
-                    Direction direction;
-                    switch (kruispuntDirection.Direction) {
-                        case Direction.NORTH:
-                            direction = Direction.SOUTH;
-                            break;
-                        case Direction.SOUTH:
-                            direction = Direction.NORTH;
-                            break;
-                        case Direction.EAST:
-                            direction = Direction.WEST;
-                            break;
-                        case Direction.WEST:
-                        default:
-                            direction = Direction.EAST;
-                            break;
-                    }
+                    kruispuntDirection.Kruispunt.addAuto(autos.Dequeue(), getOppositeDirection(kruispuntDirection.Direction));
+                }
+            } else {
+                // we voegen maar aan 1.3 van de kruispunten een auto toe
+                // per simulatieronde (random gekozen)
+                Random random = new Random();
 
-                    kruispuntDirection.Kruispunt.addAuto(autos.Dequeue(), direction);
+                foreach (KruispuntDirection kruispuntDirection in kruispunten) {
+                    if (random.Next(0, 2) == 2) {
+                        kruispuntDirection.Kruispunt.addAuto(autos.Dequeue(), getOppositeDirection(kruispuntDirection.Direction));
+                    }
                 }
             }
         }
