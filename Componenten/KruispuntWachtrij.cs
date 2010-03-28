@@ -5,6 +5,16 @@ using System.Text;
 namespace fhict_proftaak3.Componenten
 {
     /// <summary>
+    /// Status van het verkeerslicht van de wachtrij
+    /// </summary>
+    public enum Light
+    {
+        RED,
+        ORANGE,
+        GREEN
+    }
+
+    /// <summary>
     /// Wachtrij voor een kruispunt
     /// 
     /// TODO:
@@ -18,6 +28,9 @@ namespace fhict_proftaak3.Componenten
         /// </summary>
         protected Queue<Auto> autos;
 
+        /// <summary>
+        /// Auto's die wachten in deze wachtrij
+        /// </summary>
         public Queue<Auto> Autos
         {
             get
@@ -26,8 +39,14 @@ namespace fhict_proftaak3.Componenten
             }
         }
 
+        /// <summary>
+        /// Richtingen die auto's op kunnen
+        /// </summary>
         protected Direction[] directions;
 
+        /// <summary>
+        /// Richtingen die auto's op kunnen
+        /// </summary>
         public Direction[] Directions
         {
             get
@@ -36,8 +55,14 @@ namespace fhict_proftaak3.Componenten
             }
         }
 
+        /// <summary>
+        /// Richting waar de auto's vandaan komen
+        /// </summary>
         protected Direction from;
 
+        /// <summary>
+        /// Richting waar de auto's vandaan komen
+        /// </summary>
         public Direction From
         {
             get
@@ -46,7 +71,26 @@ namespace fhict_proftaak3.Componenten
             }
         }
 
+        /// <summary>
+        /// Kruispunt van deze wachtrij
+        /// </summary>
         protected IKruispunt kruispunt;
+
+        /// <summary>
+        /// Stoplicht van deze wachtrij
+        /// </summary>
+        protected Light light;
+
+        /// <summary>
+        /// Stoplicht van deze wachtrij
+        /// </summary>
+        public Light Light
+        {
+            get
+            {
+                return light;
+            }
+        }
 
 
         public KruispuntWachtrij(Direction[] directions, Direction from, IKruispunt kruispunt)
@@ -73,7 +117,7 @@ namespace fhict_proftaak3.Componenten
             autos.Enqueue(auto);
         }
 
-        public Auto shift()
+        public Auto Pop()
         {
             return autos.Dequeue();
         }

@@ -22,8 +22,8 @@ namespace fhict_proftaak3.Componenten
         /// </summary>
         public event EventHandler postSimulate;
 
-        protected IKruispunt[] kruispunten;
-        public IKruispunt[] Kruispunten
+        protected List<IKruispunt> kruispunten;
+        public List<IKruispunt> Kruispunten
         {
             get { return this.kruispunten; }
         }
@@ -31,15 +31,15 @@ namespace fhict_proftaak3.Componenten
         /// <summary>
         /// Constructor
         /// </summary>
-        public Simulator(int maxKruispunten)
+        public Simulator()
         {
-            kruispunten = new IKruispunt[maxKruispunten];
+            kruispunten = new List<IKruispunt>();
             ticks = 0;
         }
 
-        public void Set(IKruispunt kruispunt, int pos)
+        public void InitMap()
         {
-            kruispunten[pos] = kruispunt;
+            // maak een map van 4 echte kruispunten, en sub-reele om het op te vullen
         }
 
         /// <summary>

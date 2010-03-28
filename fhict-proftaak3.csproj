@@ -67,6 +67,7 @@
     <Compile Include="Componenten\Direction.cs" />
     <Compile Include="Componenten\Drieweg.cs" />
     <Compile Include="Componenten\IKruispunt.cs" />
+    <Compile Include="Componenten\Injector.cs" />
     <Compile Include="Componenten\Kruispunten\Type1.cs" />
     <Compile Include="Componenten\Kruispunten\Type2.cs" />
     <Compile Include="Componenten\Kruispunten\Type3.cs" />
