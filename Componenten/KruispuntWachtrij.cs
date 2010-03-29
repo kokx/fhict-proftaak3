@@ -40,6 +40,17 @@ namespace fhict_proftaak3.Componenten
         }
 
         /// <summary>
+        /// Aantal auto's in de wachtrij
+        /// </summary>
+        public int Count
+        {
+            get
+            {
+                return autos.Count;
+            }
+        }
+
+        /// <summary>
         /// Richtingen die auto's op kunnen
         /// </summary>
         protected Direction[] directions;
@@ -90,6 +101,14 @@ namespace fhict_proftaak3.Componenten
             {
                 return light;
             }
+            set
+            {
+                if ((value == Light.GREEN) && (light != Light.RED)) {
+                    return;
+                }
+
+                this.light = value;
+            }
         }
 
 
@@ -119,7 +138,10 @@ namespace fhict_proftaak3.Componenten
 
         public Auto Pop()
         {
-            return autos.Dequeue();
+            if (autos.Count > 0) {
+                return autos.Dequeue();
+            }
+            return null;
         }
     }
 }

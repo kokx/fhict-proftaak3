@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using fhict_proftaak3.Componenten;
+using fhict_proftaak3.Ai;
 
 namespace fhict_proftaak3
 {
@@ -98,6 +99,10 @@ namespace fhict_proftaak3
             Simulator simulator = new Simulator();
 
             simulator.postSimulate += new EventHandler(simulator_postSimulate);
+
+            simulator.InitMap();
+
+            Ai.Ai ai = new Ai.Ai(simulator);
 
             simulator.Simulate(10);
             /*

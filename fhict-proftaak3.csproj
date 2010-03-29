@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ai\Ai.cs" />
     <Compile Include="Componenten\Auto.cs" />
     <Compile Include="Componenten\Direction.cs" />
     <Compile Include="Componenten\Drieweg.cs" />

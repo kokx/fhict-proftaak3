@@ -49,6 +49,13 @@ namespace fhict_proftaak3.Componenten
         /// </summary>
         protected List<KruispuntDirection> kruispunten;
 
+        public KruispuntWachtrij[] Wachtrijen
+        {
+            get
+            {
+                return null;
+            }
+        }
 
         public Injector(List<Auto> autos)
         {

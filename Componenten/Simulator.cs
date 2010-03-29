@@ -4,7 +4,7 @@ using System.Text;
 
 namespace fhict_proftaak3.Componenten
 {
-    class Simulator
+    public class Simulator
     {
 
         protected int ticks;
@@ -35,8 +35,6 @@ namespace fhict_proftaak3.Componenten
         {
             kruispunten = new List<IKruispunt>();
             ticks = 0;
-
-            InitMap();
         }
 
         /// <summary>
@@ -64,8 +62,6 @@ namespace fhict_proftaak3.Componenten
         {
             IKruispunt injector = new Injector(GenerateAutos(100));
 
-            kruispunten.Add(injector);
-
             // kruispunt north-west
             IKruispunt nw = new Kruispunten.Type1();
 
@@ -73,6 +69,9 @@ namespace fhict_proftaak3.Componenten
 
             injector.addKruispunt(nw, Direction.SOUTH);
             injector.addKruispunt(nw, Direction.EAST);
+
+            nw.addKruispunt(injector, Direction.NORTH);
+            nw.addKruispunt(injector, Direction.WEST);
 
             // kruispunt 2, north-east
             IKruispunt ne = new Kruispunten.Type2();
@@ -82,6 +81,9 @@ namespace fhict_proftaak3.Componenten
             injector.addKruispunt(ne, Direction.SOUTH);
             injector.addKruispunt(ne, Direction.WEST);
 
+            ne.addKruispunt(injector, Direction.NORTH);
+            ne.addKruispunt(injector, Direction.EAST);
+
             // kruispunt 3, south-west
             IKruispunt sw = new Kruispunten.Type2();
 
@@ -90,6 +92,9 @@ namespace fhict_proftaak3.Componenten
             injector.addKruispunt(sw, Direction.NORTH);
             injector.addKruispunt(sw, Direction.EAST);
 
+            sw.addKruispunt(injector, Direction.SOUTH);
+            sw.addKruispunt(injector, Direction.WEST);
+
             // kruispunt 4, south-east
             IKruispunt se = new Kruispunten.Type3();
 
@@ -97,6 +102,9 @@ namespace fhict_proftaak3.Componenten
 
             injector.addKruispunt(se, Direction.NORTH);
             injector.addKruispunt(se, Direction.WEST);
+
+            se.addKruispunt(injector, Direction.SOUTH);
+            se.addKruispunt(injector, Direction.WEST);
 
             // ok, we got the basic setup, now add the roads between them
 

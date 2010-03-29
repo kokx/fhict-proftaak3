@@ -111,18 +111,22 @@ namespace fhict_proftaak3.Componenten
                         // drive through
                         Auto auto = wachtrij.Pop();
 
+                        if (null == auto) {
+                            break;
+                        }
+
                         switch (auto.Richting) {
                             case Direction.NORTH:
                                 north.addAuto(auto, Direction.SOUTH);
                                 break;
                             case Direction.SOUTH:
-                                north.addAuto(auto, Direction.NORTH);
+                                south.addAuto(auto, Direction.NORTH);
                                 break;
                             case Direction.EAST:
-                                north.addAuto(auto, Direction.WEST);
+                                east.addAuto(auto, Direction.WEST);
                                 break;
                             case Direction.WEST:
-                                north.addAuto(auto, Direction.EAST);
+                                west.addAuto(auto, Direction.EAST);
                                 break;
                         }
                         break;
