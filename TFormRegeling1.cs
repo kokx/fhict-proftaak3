@@ -92,22 +92,8 @@ namespace fhict_proftaak3
         void simulator_postSimulate(object sender, EventArgs e)
         {
             MessageBox.Show("I am dishonored!");
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Simulator simulator = new Simulator();
-
-            simulator.postSimulate += new EventHandler(simulator_postSimulate);
-
-            simulator.InitMap();
-
-            Ai.Ai ai = new Ai.Ai(simulator);
-
-            simulator.Simulate(10);
-            /*
-            timer1.Enabled = true;
-            foreach(VerkeersComponentenLibrary.TFormKruispunt k in kruispunten)
+            foreach (VerkeersComponentenLibrary.TFormKruispunt k in kruispunten)
             {
                 if (k is TKP1)
                 {
@@ -130,12 +116,19 @@ namespace fhict_proftaak3
                     tkp4.NieuweStatus();
                 }
             }
-            */
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Simulator simulator = new Simulator();
+
+            simulator.postSimulate += new EventHandler(simulator_postSimulate);
+
+            simulator.Simulate(10);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
             foreach (VerkeersComponentenLibrary.TFormKruispunt k in kruispunten)
             {
                 if (k is TKP1)
