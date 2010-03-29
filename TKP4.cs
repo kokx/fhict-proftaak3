@@ -11,6 +11,11 @@ namespace fhict_proftaak3
     public partial class TKP4 :VerkeersComponentenLibrary.TFormKruispunt
     {
         int status = 0;
+        int aantalAutos = 0;
+
+        public int AantalAutos
+        { get { return aantalAutos; } }
+
         public int Status
         { get { return status; } }
 
@@ -21,6 +26,9 @@ namespace fhict_proftaak3
 
         public void NieuweStatus()
         {
+            aantalAutos = Convert.ToInt32(numericUpDown1.Value + numericUpDown2.Value
+                + numericUpDown3.Value);        
+
             status++;
             switch (status)
             {

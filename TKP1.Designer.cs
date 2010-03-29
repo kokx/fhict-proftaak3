@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tStoplicht1 = new VerkeersComponentenLibrary.TStoplicht();
             this.tStoplicht2 = new VerkeersComponentenLibrary.TStoplicht();
             this.tStoplicht3 = new VerkeersComponentenLibrary.TStoplicht();
@@ -44,6 +45,7 @@
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.tEventQueue1 = new VerkeersComponentenLibrary.TEventQueue(this.components);
             this.tKruispunt1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -259,6 +261,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private VerkeersComponentenLibrary.TEventQueue tEventQueue1;
 
     }
 }
