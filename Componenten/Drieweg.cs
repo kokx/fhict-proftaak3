@@ -28,6 +28,8 @@ namespace fhict_proftaak3.Componenten
         protected IKruispunt south;
 
 
+        public abstract void removeKruispunten();
+
         public void addAuto(Auto auto, Direction afkomst)
         {
             Direction[] choose = new Direction[2];

@@ -28,6 +28,13 @@ namespace fhict_proftaak3.Componenten
             get { return this.kruispunten; }
         }
 
+        protected Injector injector;
+
+        public Injector Injector
+        {
+            get { return injector; }
+        }
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -55,12 +62,81 @@ namespace fhict_proftaak3.Componenten
         }
 
         /// <summary>
+        /// Maak een map van vier opgegeven kruispunten
+        /// </summary>
+        /// <param name="nw">Kruispunt in het noordwesten</param>
+        /// <param name="ne">Kruispunt in het noordoosten</param>
+        /// <param name="sw">Kruispunt in het zuidwesten</param>
+        /// <param name="se">Kruispunt in het zuidoosten</param>
+        public void InitMap(IKruispunt nw, IKruispunt ne, IKruispunt sw, IKruispunt se)
+        {
+            // refresh the kruispunten list
+            kruispunten = new List<IKruispunt>();
+
+            injector = new Injector(GenerateAutos(100));
+
+            // kruispunt north-west
+            kruispunten.Add(nw);
+            nw.removeKruispunten();
+
+            injector.addKruispunt(nw, Direction.SOUTH);
+            injector.addKruispunt(nw, Direction.EAST);
+
+            nw.addKruispunt(injector, Direction.NORTH);
+            nw.addKruispunt(injector, Direction.WEST);
+
+            // kruispunt 2, north-east
+            kruispunten.Add(ne);
+            ne.removeKruispunten();
+
+            injector.addKruispunt(ne, Direction.SOUTH);
+            injector.addKruispunt(ne, Direction.WEST);
+
+            ne.addKruispunt(injector, Direction.NORTH);
+            ne.addKruispunt(injector, Direction.EAST);
+
+            // kruispunt 3, south-west
+            kruispunten.Add(sw);
+            sw.removeKruispunten();
+
+            injector.addKruispunt(sw, Direction.NORTH);
+            injector.addKruispunt(sw, Direction.EAST);
+
+            sw.addKruispunt(injector, Direction.SOUTH);
+            sw.addKruispunt(injector, Direction.WEST);
+
+            // kruispunt 4, south-east
+            kruispunten.Add(se);
+            se.removeKruispunten();
+
+            injector.addKruispunt(se, Direction.NORTH);
+            injector.addKruispunt(se, Direction.WEST);
+
+            se.addKruispunt(injector, Direction.SOUTH);
+            se.addKruispunt(injector, Direction.WEST);
+
+            // ok, we got the basic setup, now add the roads between them
+
+            ne.addKruispunt(nw, Direction.WEST);
+            nw.addKruispunt(ne, Direction.EAST);
+
+            se.addKruispunt(sw, Direction.WEST);
+            sw.addKruispunt(se, Direction.EAST);
+
+            ne.addKruispunt(se, Direction.SOUTH);
+            se.addKruispunt(ne, Direction.NORTH);
+
+            nw.addKruispunt(sw, Direction.SOUTH);
+            sw.addKruispunt(nw, Direction.NORTH);
+        }
+
+        /// <summary>
         /// Maak een map van 4 kruispunten, ook word een Injector kruispunt
         /// toegevoegd
         /// </summary>
         public void InitMap()
         {
-            IKruispunt injector = new Injector(GenerateAutos(100));
+            injector = new Injector(GenerateAutos(100));
 
             // kruispunt north-west
             IKruispunt nw = new Kruispunten.Type1();

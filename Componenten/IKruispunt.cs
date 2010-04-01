@@ -12,6 +12,8 @@ namespace fhict_proftaak3.Componenten
 
         void addKruispunt(IKruispunt kruispunt, Direction direction);
 
+        void removeKruispunten();
+
         KruispuntWachtrij getWachtrij(Direction afkomst, Direction richting);
 
         void Simulate();

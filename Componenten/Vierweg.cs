@@ -54,6 +54,8 @@ namespace fhict_proftaak3.Componenten
             getWachtrij(afkomst, auto.Richting).Add(auto);
         }
 
+        public abstract void removeKruispunten();
+
         public void addAuto(Auto auto, IKruispunt afkomst)
         {
             Direction direction;

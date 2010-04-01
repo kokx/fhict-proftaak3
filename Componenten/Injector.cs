@@ -73,6 +73,11 @@ namespace fhict_proftaak3.Componenten
             autos = new Queue<Auto>();
         }
 
+        public void removeKruispunten()
+        {
+            kruispunten = new List<KruispuntDirection>();
+        }
+
         public void addAuto(Auto auto, Direction afkomst)
         {
             autos.Enqueue(auto);

@@ -18,5 +18,10 @@ namespace fhict_proftaak3.Componenten.Kruispunten
             // from WEST
             wachtrijen[2] = new KruispuntWachtrij(new Direction[2] { Direction.SOUTH, Direction.EAST  }, Direction.WEST, this);
         }
+
+        public override void removeKruispunten()
+        {
+            wachtrijen = new KruispuntWachtrij[3];
+        }
     }
 }

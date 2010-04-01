@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using fhict_proftaak3.Componenten;
+using fhict_proftaak3.Componenten.Kruispunten;
 using fhict_proftaak3.Ai;
 
 namespace fhict_proftaak3
@@ -15,9 +16,33 @@ namespace fhict_proftaak3
         List<VerkeersComponentenLibrary.TFormKruispunt> kruispunten
             = new List<VerkeersComponentenLibrary.TFormKruispunt>();
 
+        public Simulator simulator;
+
         public TFormRegeling1()
         {
             InitializeComponent();
+
+            simulator = new Simulator();
+
+            simulator.postSimulate += new EventHandler(simulator_postSimulate);
+        }
+
+        private KruispuntForm createKruispunt(ComboBox comboBox)
+        {
+            KruispuntForm kruispunt;
+
+            if (comboBox1.Text == "Type 1")
+                kruispunt = new TKP1(new Type1());
+            if (comboBox1.Text == "Type 2")
+                kruispunt = new TKP2(new Type2());
+            if (comboBox1.Text == "Type 3")
+                kruispunt = new TKP3(new Type3());
+            if (comboBox1.Text == "Type 4")
+                kruispunt = new TKP4(new Type4());
+            else
+                return null;
+
+            return kruispunt;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,14 +56,7 @@ namespace fhict_proftaak3
             //Toevoegen Locatie 1
             if (comboBox1.Text != "Geen")
             {
-                if (comboBox1.Text == "Type 1")
-                    kruispunten.Add(new TKP1());
-                if (comboBox1.Text == "Type 2")
-                    kruispunten.Add(new TKP2());
-                if (comboBox1.Text == "Type 3")
-                    kruispunten.Add(new TKP3());
-                if (comboBox1.Text == "Type 4")
-                    kruispunten.Add(new TKP4());
+                kruispunten[0] = createKruispunt(comboBox1);
                 this.insertKruispuntForm(0, kruispunten[0], 0, 0, 484, 339);
             }
             else { kruispunten.Add(null); }
@@ -46,14 +64,7 @@ namespace fhict_proftaak3
             //Toevoegen Locatie 2
             if (comboBox2.Text != "Geen")
             {
-                if (comboBox2.Text == "Type 1")
-                    kruispunten.Add(new TKP1());
-                if (comboBox2.Text == "Type 2")
-                    kruispunten.Add(new TKP2());
-                if (comboBox2.Text == "Type 3")
-                    kruispunten.Add(new TKP3());
-                if (comboBox2.Text == "Type 4")
-                    kruispunten.Add(new TKP4());
+                kruispunten[1] = createKruispunt(comboBox2);
                 this.insertKruispuntForm(1, kruispunten[1], 484, 0, 484, 339);
             }
             else { kruispunten.Add(null);}
@@ -61,14 +72,7 @@ namespace fhict_proftaak3
             //Toevoegen Locatie 3
             if (comboBox3.Text != "Geen")
             {
-                if (comboBox3.Text == "Type 1")
-                    kruispunten.Add(new TKP1());
-                if (comboBox3.Text == "Type 2")
-                    kruispunten.Add(new TKP2());
-                if (comboBox3.Text == "Type 3")
-                    kruispunten.Add(new TKP3());
-                if (comboBox3.Text == "Type 4")
-                    kruispunten.Add(new TKP4());
+                kruispunten[2] = createKruispunt(comboBox3);
                 this.insertKruispuntForm(2, kruispunten[2], 0, 339, 484, 339);
             }
             else { kruispunten.Add(null); }
@@ -76,14 +80,7 @@ namespace fhict_proftaak3
             //Toevoegen Locatie 4
             if (comboBox4.Text != "Geen")
             {
-                if (comboBox4.Text == "Type 1")
-                    kruispunten.Add(new TKP1());
-                if (comboBox4.Text == "Type 2")
-                    kruispunten.Add(new TKP2());
-                if (comboBox4.Text == "Type 3")
-                    kruispunten.Add(new TKP3());
-                if (comboBox4.Text == "Type 4")
-                    kruispunten.Add(new TKP4());
+                kruispunten[3] = createKruispunt(comboBox4);
                 this.insertKruispuntForm(3, kruispunten[3], 484, 339, 484, 339);
             }
             else { kruispunten.Add(null); }
@@ -91,72 +88,27 @@ namespace fhict_proftaak3
 
         void simulator_postSimulate(object sender, EventArgs e)
         {
-            MessageBox.Show("I am dishonored!");
+            //MessageBox.Show("I am dishonored!");
 
-            foreach (VerkeersComponentenLibrary.TFormKruispunt k in kruispunten)
+            foreach (KruispuntForm k in kruispunten)
             {
-                if (k is TKP1)
-                {
-                    TKP1 tkp1 = k as TKP1;
-                    tkp1.NieuweStatus();
-                }
-                if (k is TKP2)
-                {
-                    TKP2 tkp2 = k as TKP2;
-                    tkp2.NieuweStatus();
-                }
-                if (k is TKP3)
-                {
-                    TKP3 tkp3 = k as TKP3;
-                    tkp3.NieuweStatus();
-                }
-                if (k is TKP4)
-                {
-                    TKP4 tkp4 = k as TKP4;
-                    tkp4.NieuweStatus();
-                }
+                k.NieuweStatus();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Simulator simulator = new Simulator();
+            simulator.Simulate(100);
 
-            simulator.postSimulate += new EventHandler(simulator_postSimulate);
-
-            simulator.Simulate(10);
+            MessageBox.Show("Simulatie compleet");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            foreach (VerkeersComponentenLibrary.TFormKruispunt k in kruispunten)
+            foreach (KruispuntForm k in kruispunten)
             {
-                if (k is TKP1)
-                {
-                    TKP1 tkp1 = k as TKP1;
-                    tkp1.NoodStop();
-                }
-                if (k is TKP2)
-                {
-                    TKP2 tkp2 = k as TKP2;
-                    tkp2.NoodStop();
-                }
-                if (k is TKP3)
-                {
-                    TKP3 tkp3 = k as TKP3;
-                    tkp3.NoodStop();
-                }
-                if (k is TKP4)
-                {
-                    TKP4 tkp4 = k as TKP4;
-                    tkp4.NoodStop();
-                }
+                k.NoodStop();
             }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            button2_Click(sender, e);
         }
     }
 }

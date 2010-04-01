@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace fhict_proftaak3
 {
-    public partial class TKP3 : VerkeersComponentenLibrary.TFormKruispunt
+    public partial class TKP3 : KruispuntForm
     {
         int status = 0;
         int aantalAutos = 0;
@@ -19,12 +19,14 @@ namespace fhict_proftaak3
         public int Status
         { get { return status; } }
 
-        public TKP3()
+        public TKP3(Componenten.IKruispunt kruispunt)
         {
+            this.kruispunt = kruispunt;
+
             InitializeComponent();
         }
 
-        public void NieuweStatus()
+        public override void NieuweStatus()
         {
             aantalAutos = Convert.ToInt32(numericUpDown1.Value + numericUpDown2.Value + numericUpDown3.Value +
             numericUpDown4.Value);
@@ -51,7 +53,7 @@ namespace fhict_proftaak3
             }
         }
 
-        public void NoodStop()
+        public override void NoodStop()
         {
             tStoplicht1.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
             tStoplicht2.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
