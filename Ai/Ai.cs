@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using fhict_proftaak3.Componenten;
+using fhict_proftaak3.Componenten.Kruispunten;
 
 namespace fhict_proftaak3.Ai
 {
@@ -9,12 +10,39 @@ namespace fhict_proftaak3.Ai
     {
 
         private Simulator simulator;
+        private int ticks;
+        private int firstTick;
+        private List<IKruispuntType> kruispunten;
 
         public Ai(Simulator simulator)
         {
             this.simulator = simulator;
+            this.ticks = simulator.Ticks;
+            kruispunten = new List<IKruispuntType>();
 
             // maak een initial state aan
+            foreach (IKruispunt kruispunt in this.simulator)
+            {
+                if (kruispunt is Type1)
+                {
+                    kruispunten.Add(new KruispuntType1());
+                }
+
+                else if (kruispunt is Type2)
+                {
+                    kruispunten.Add(new KruispuntType2());
+                }
+
+                else if (kruispunten is Type3)
+                {
+                    kruispunten.Add(new KruispuntType3());
+                }
+
+                else if (kruispunten is Type4)
+                {
+                    kruispunten.Add(new KruispuntType4());
+                }
+            }
 
 
             // register event handlers
@@ -30,8 +58,10 @@ namespace fhict_proftaak3.Ai
                     continue;
                 }
 
-                // make the first light green
-                kruispunt.Wachtrijen[0].Light = Light.GREEN;
+                
+                    // make the first light green
+                    kruispunt.Wachtrijen[0].Light = Light.GREEN;
+                    firstTick = ticks; 
             }
         }
 

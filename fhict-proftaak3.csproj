@@ -64,6 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ai\Ai.cs" />
+    <Compile Include="Ai\IKruispuntType.cs" />
+    <Compile Include="Ai\KruispuntType1.cs" />
+    <Compile Include="Ai\KruispuntType2.cs" />
+    <Compile Include="Ai\KruispuntType3.cs" />
+    <Compile Include="Ai\KruispuntType4.cs" />
     <Compile Include="Componenten\Auto.cs" />
     <Compile Include="Componenten\Direction.cs" />
     <Compile Include="Componenten\Drieweg.cs" />
