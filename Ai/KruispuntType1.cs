@@ -35,19 +35,19 @@ namespace fhict_proftaak3.Ai
                 wachtrij3 = 8;
             }
 
-            if (kruispunt.Wachtrijen[wachtrij1].Autos.Count = 0)
+            if (kruispunt.Wachtrijen[wachtrij1].Autos.Count == 0)
             {
                 geenAutosBij1 = true;
-                if (wachtrij1 = 0)
+                if (wachtrij1 == 0)
                 { wachtrij4 = 5; }
 
-                if (wachtrij1 = 2)
+                if (wachtrij1 == 2)
                 { wachtrij4 = 8;}
 
-                if (wachtrij1 = 1)
+                if (wachtrij1 == 1)
                 { wachtrij4 = 1; }
 
-                if (wachtrij1 = 7)
+                if (wachtrij1 == 7)
                 { wachtrij4 = 3; }
             }
 
@@ -63,7 +63,7 @@ namespace fhict_proftaak3.Ai
                         { kruispunt.Wachtrijen[wachtrij1].Light = Light.GREEN; }
 
                         kruispunt.Wachtrijen[wachtrij2].Light = Light.GREEN;
-                        kruispunt.Wachtrijen[wactrij3].Light = Light.GREEN;
+                        kruispunt.Wachtrijen[wachtrij3].Light = Light.GREEN;
 
                     }
                     else
@@ -74,12 +74,12 @@ namespace fhict_proftaak3.Ai
                         { kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE; }
 
                         kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
-                        kruispunt.Wachtrijen[wactrij3].Light = Light.ORANGE;
+                        kruispunt.Wachtrijen[wachtrij3].Light = Light.ORANGE;
                     }
                 }
                 kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;
                 kruispunt.Wachtrijen[wachtrij2].Light = Light.RED;
-                kruispunt.Wachtrijen[wactrij3].Light = Light.RED;
+                kruispunt.Wachtrijen[wachtrij3].Light = Light.RED;
                 kruispunt.Wachtrijen[wachtrij4].Light = Light.RED;
 
                 if (wachtrij1 < 6 && wachtrij2 < 7)
