@@ -12,7 +12,9 @@ namespace fhict_proftaak3.Ai
         private int firstTick;
         private int wachtrij1 = 0;
         private int wachtrij2 = 1;
-        private int wactrij3;
+        private int wachtrij3;
+        private int wachtrij4;
+        private bool geenAutosBij1;
         private Simulator simulator;
         IKruispunt kruispunt;
        
@@ -27,10 +29,26 @@ namespace fhict_proftaak3.Ai
         public void stopLichtRegeling(int ticksGroen)
         {
             firstTick = ticks;
-            wactrij3 = wachtrij1--;
-            if (wactrij3 == -1)
+            wachtrij3 = wachtrij1--;
+            if (wachtrij3 == -1)
             {
-                wactrij3 = 8;
+                wachtrij3 = 8;
+            }
+
+            if (kruispunt.Wachtrijen[wachtrij1].Autos.Count = 0)
+            {
+                geenAutosBij1 = true;
+                if (wachtrij1 = 0)
+                { wachtrij4 = 5; }
+
+                if (wachtrij1 = 2)
+                { wachtrij4 = 8;}
+
+                if (wachtrij1 = 1)
+                { wachtrij4 = 1; }
+
+                if (wachtrij1 = 7)
+                { wachtrij4 = 3; }
             }
 
             if (ticksGroen > 0)
@@ -39,14 +57,22 @@ namespace fhict_proftaak3.Ai
                 {
                     if (ticks < firstTick + ticksGroen)
                     {
-                        kruispunt.Wachtrijen[wachtrij1].Light = Light.GREEN;
+                        if (geenAutosBij1)
+                        { kruispunt.Wachtrijen[wachtrij4].Light = Light.GREEN; }
+                        else
+                        { kruispunt.Wachtrijen[wachtrij1].Light = Light.GREEN; }
+
                         kruispunt.Wachtrijen[wachtrij2].Light = Light.GREEN;
                         kruispunt.Wachtrijen[wactrij3].Light = Light.GREEN;
 
                     }
                     else
                     {
-                        kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE;
+                        if (geenAutosBij1)
+                        { kruispunt.Wachtrijen[wachtrij4].Light = Light.ORANGE; }
+                        else
+                        { kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE; }
+
                         kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
                         kruispunt.Wachtrijen[wactrij3].Light = Light.ORANGE;
                     }
@@ -54,6 +80,7 @@ namespace fhict_proftaak3.Ai
                 kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;
                 kruispunt.Wachtrijen[wachtrij2].Light = Light.RED;
                 kruispunt.Wachtrijen[wactrij3].Light = Light.RED;
+                kruispunt.Wachtrijen[wachtrij4].Light = Light.RED;
 
                 if (wachtrij1 < 6 && wachtrij2 < 7)
                 {
