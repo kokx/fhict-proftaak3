@@ -21,11 +21,11 @@ namespace fhict_proftaak3.Ai
             kruispunten = new List<IKruispuntType>();
 
             // maak een initial state aan
-            foreach (IKruispunt kruispunt in this.simulator)
+            foreach (IKruispunt kruispunt in this.simulator.Kruispunten)
             {
                 if (kruispunt is Type1)
                 {
-                    kruispunten.Add(new KruispuntType1());
+                    kruispunten.Add(new KruispuntType1(kruispunt, simulator));
                 }
 
                 else if (kruispunt is Type2)

@@ -43,17 +43,6 @@ namespace fhict_proftaak3.Ai
                     kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
                 }
             }
-
-
-            if (kruispuntWachtrij < 7)
-            {
-                kruispuntWachtrij = 0;
-            }
-
-            else
-            {
-                kruispuntWachtrij++;
-            }
              
         }
             

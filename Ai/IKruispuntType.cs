@@ -6,8 +6,6 @@ namespace fhict_proftaak3.Ai
 {
     public interface IKruispuntType
     {
-        void stoptLichtRegeling()
-        {             
-        }
+        void stopLichtRegeling(int ticksGroen);
     }
 }

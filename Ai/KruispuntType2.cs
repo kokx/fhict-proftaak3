@@ -4,7 +4,10 @@ using System.Text;
 
 namespace fhict_proftaak3.Ai
 {
-    class KruispuntType2
+    public class KruispuntType2 : IKruispuntType
     {
+        public void stopLichtRegeling(int ticksGroen)
+        {
+        }
     }
 }
