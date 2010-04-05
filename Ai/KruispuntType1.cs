@@ -17,6 +17,7 @@ namespace fhict_proftaak3.Ai
         private bool geenAutosBij1;
         private Simulator simulator;
         IKruispunt kruispunt;
+        
        
 
         public KruispuntType1(IKruispunt kruispunt, Simulator simulator)
@@ -28,6 +29,11 @@ namespace fhict_proftaak3.Ai
 
         public void stopLichtRegeling(int ticksGroen)
         {
+            // onderstaande code wordt uitgevoerd als aantal groentikken groter zijn als 0
+            // zo niet gaat deze naar het einde van de ronde
+            if (ticksGroen > 0)
+            {
+
             firstTick = ticks;
             wachtrij3 = wachtrij1--;
             if (wachtrij3 == -1)
@@ -35,24 +41,51 @@ namespace fhict_proftaak3.Ai
                 wachtrij3 = 8;
             }
 
+            // Als er bij het eerst wachtrij geen auto's zijn wordt een alternatieve wachtrij gekozen 
+            // als daar wel auto's staan.
             if (kruispunt.Wachtrijen[wachtrij1].Autos.Count == 0)
-            {
-                geenAutosBij1 = true;
+            {                
                 if (wachtrij1 == 0)
-                { wachtrij4 = 5; }
+                {                     
+                    if (kruispunt.Wachtrijen[5].Autos.Count > 0)
+                    {
+                        wachtrij4 = 5;
+                        geenAutosBij1 = true;
+                    }
+                }
 
                 if (wachtrij1 == 2)
-                { wachtrij4 = 8;}
+                {
+                    if (kruispunt.Wachtrijen[1].Autos.Count > 0)
+                    {
+                        wachtrij4 = 1;
+                        geenAutosBij1 = true;
+                    }
+                }
 
-                if (wachtrij1 == 1)
-                { wachtrij4 = 1; }
+                if (wachtrij1 == 4)
+                {
+                    if (kruispunt.Wachtrijen[1].Autos.Count > 0)
+                    {
+                        wachtrij4 = 1;
+                        geenAutosBij1 = true;
+                    }
+                }
 
-                if (wachtrij1 == 7)
-                { wachtrij4 = 3; }
+                if (wachtrij1 == 6)
+                {
+                    if (kruispunt.Wachtrijen[5].Autos.Count > 0)
+                    {
+                        wachtrij4 = 5;
+                        geenAutosBij1 = true;
+                    }
+                }
             }
-
-            if (ticksGroen > 0)
+            else
             {
+                geenAutosBij1 = false;
+            }
+           
                 while (ticks <= firstTick + ticksGroen)
                 {
                     if (ticks < firstTick + ticksGroen)
@@ -80,24 +113,22 @@ namespace fhict_proftaak3.Ai
                 kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;
                 kruispunt.Wachtrijen[wachtrij2].Light = Light.RED;
                 kruispunt.Wachtrijen[wachtrij3].Light = Light.RED;
-                kruispunt.Wachtrijen[wachtrij4].Light = Light.RED;
-
-                if (wachtrij1 < 6 && wachtrij2 < 7)
-                {
-                    wachtrij1 += 2;
-                    wachtrij2 += 2;
-                }
-                else
-                {
-                    wachtrij1 = 0;
-                    wachtrij2 = 1;
-                }
+                kruispunt.Wachtrijen[wachtrij4].Light = Light.RED;                               
             }
 
-
+            // einde van de ronde
+            if (wachtrij1 < 6 && wachtrij2 < 7)
+            {
+                wachtrij1 += 2;
+                wachtrij2 += 2;
+            }
+            else
+            {
+                wachtrij1 = 0;
+                wachtrij2 = 1;
+            }
              
-        }
-            
+        }            
 
     }
 }
