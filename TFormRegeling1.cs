@@ -31,16 +31,17 @@ namespace fhict_proftaak3
         {
             KruispuntForm kruispunt;
 
-            if (comboBox1.Text == "Type 1")
+            if (comboBox.Text == "Type 1") {
                 kruispunt = new TKP1(new Type1());
-            if (comboBox1.Text == "Type 2")
+            } else if (comboBox.Text == "Type 2") {
                 kruispunt = new TKP2(new Type2());
-            if (comboBox1.Text == "Type 3")
+            } else if (comboBox.Text == "Type 3") {
                 kruispunt = new TKP3(new Type3());
-            if (comboBox1.Text == "Type 4")
+            } else if (comboBox.Text == "Type 4") {
                 kruispunt = new TKP4(new Type4());
-            else
+            } else {
                 return null;
+            }
 
             return kruispunt;
         }
@@ -56,7 +57,7 @@ namespace fhict_proftaak3
             //Toevoegen Locatie 1
             if (comboBox1.Text != "Geen")
             {
-                kruispunten[0] = createKruispunt(comboBox1);
+                kruispunten.Add(createKruispunt(comboBox1));
                 this.insertKruispuntForm(0, kruispunten[0], 0, 0, 484, 339);
             }
             else { kruispunten.Add(null); }
@@ -64,7 +65,7 @@ namespace fhict_proftaak3
             //Toevoegen Locatie 2
             if (comboBox2.Text != "Geen")
             {
-                kruispunten[1] = createKruispunt(comboBox2);
+                kruispunten.Add(createKruispunt(comboBox2));
                 this.insertKruispuntForm(1, kruispunten[1], 484, 0, 484, 339);
             }
             else { kruispunten.Add(null);}
@@ -72,7 +73,7 @@ namespace fhict_proftaak3
             //Toevoegen Locatie 3
             if (comboBox3.Text != "Geen")
             {
-                kruispunten[2] = createKruispunt(comboBox3);
+                kruispunten.Add(createKruispunt(comboBox3));
                 this.insertKruispuntForm(2, kruispunten[2], 0, 339, 484, 339);
             }
             else { kruispunten.Add(null); }
@@ -80,7 +81,7 @@ namespace fhict_proftaak3
             //Toevoegen Locatie 4
             if (comboBox4.Text != "Geen")
             {
-                kruispunten[3] = createKruispunt(comboBox4);
+                kruispunten.Add(createKruispunt(comboBox4));
                 this.insertKruispuntForm(3, kruispunten[3], 484, 339, 484, 339);
             }
             else { kruispunten.Add(null); }

@@ -5,7 +5,7 @@ using fhict_proftaak3.Componenten;
 
 namespace fhict_proftaak3
 {
-    public abstract class KruispuntForm : VerkeersComponentenLibrary.TFormKruispunt
+    public class KruispuntForm : VerkeersComponentenLibrary.TFormKruispunt
     {
         public IKruispunt Kruispunt {
             get
@@ -14,10 +14,31 @@ namespace fhict_proftaak3
             }
         }
 
+        public VerkeersComponentenLibrary.TStoplichtKleur GetKleur(KruispuntWachtrij wachtrij)
+        {
+            switch (wachtrij.Light) {
+                case Light.GREEN:
+                    return VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
+                    break;
+                case Light.ORANGE:
+                    return VerkeersComponentenLibrary.TStoplichtKleur.skGeel;
+                    break;
+                case Light.RED:
+                    return VerkeersComponentenLibrary.TStoplichtKleur.skRood;
+                    break;
+            }
+            NoodStop();
+            return VerkeersComponentenLibrary.TStoplichtKleur.skGeelKnipper;
+        }
+
         protected IKruispunt kruispunt;
 
-        public abstract void NieuweStatus();
+        public virtual void NieuweStatus()
+        {
+        }
 
-        public abstract void NoodStop();
+        public virtual void NoodStop()
+        {
+        }
     }
 }
