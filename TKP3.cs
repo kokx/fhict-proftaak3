@@ -28,28 +28,21 @@ namespace fhict_proftaak3
 
         public override void NieuweStatus()
         {
-            aantalAutos = Convert.ToInt32(numericUpDown1.Value + numericUpDown2.Value + numericUpDown3.Value +
-            numericUpDown4.Value);
-            status++;
-            switch (status)
-            {
-                case 1:
-                    NoodStop();
-                    tStoplicht3.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    break;
-                case 2:
-                    NoodStop();
-                    tStoplicht4.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    break;
-                case 3:
-                    NoodStop();
-                    tStoplicht5.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    break;
-                case 4:
-                    NoodStop();
-                    tStoplicht6.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    status = 0;
-                    break;
+            foreach (KruispuntWachtrij wachtrij in kruispunt.Wachtrijen) {
+                switch (wachtrij.From) {
+                    case Direction.NORTH:
+                        tStoplicht6.Kleur = GetKleur(wachtrij);
+                        break;
+                    case Direction.SOUTH:
+                        tStoplicht4.Kleur = GetKleur(wachtrij);
+                        break;
+                    case Direction.EAST:
+                        tStoplicht5.Kleur = GetKleur(wachtrij);
+                        break;
+                    case Direction.WEST:
+                        tStoplicht3.Kleur = GetKleur(wachtrij);
+                        break;
+                }
             }
         }
 
