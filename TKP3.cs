@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using fhict_proftaak3.Componenten;
+using fhict_proftaak3.Componenten.Kruispunten;
 
 namespace fhict_proftaak3
 {

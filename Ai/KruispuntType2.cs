@@ -71,7 +71,7 @@ namespace fhict_proftaak3.Ai
                         { wachtrij1 = 1; }
                     }
 
-                    // zebra paden
+                    // zebra pad1
                     else if (wachtrij1 == 6)
                     {
                         if (kruispunt.Wachtrijen[1].Autos.Count > kruispunt.Wachtrijen[3].Autos.Count)
@@ -98,7 +98,7 @@ namespace fhict_proftaak3.Ai
                         { wachtrij1 = 0; }
                     }
 
-                    // zebra paden
+                    // zebra pad2
                     else if (wachtrij2 == 7)
                     {
                         if (kruispunt.Wachtrijen[4].Autos.Count > kruispunt.Wachtrijen[0].Autos.Count)
