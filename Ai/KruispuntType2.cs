@@ -121,8 +121,21 @@ namespace fhict_proftaak3.Ai
                     }
                     else
                     {
-                        kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE;
-                        kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
+                        if (wachtrij1 = 6)
+                        {
+                            kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;
+                        }
+
+                        if (wachtrij2 = 7)
+                        {
+                            kruispunt.Wachtrijen[wachtrij2].Light = Light.RED;
+                        }
+
+                        else
+                        {
+                            kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE;
+                            kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
+                        }
                     }
                 }
                 kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;

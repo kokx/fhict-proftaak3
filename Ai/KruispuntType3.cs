@@ -12,6 +12,8 @@ namespace fhict_proftaak3.Ai
         private int firstTick;
         private int wachtrij1;
         private int wachtrij2;
+        private int zebrapad1;
+        private int zebrapad2;
         private int ronde = 0;
         private Simulator simulator;
         IKruispunt kruispunt;
@@ -23,8 +25,70 @@ namespace fhict_proftaak3.Ai
             this.kruispunt = kruispunt;
         }
 
-        public void stopLichtRegeling(int ticksGroen)
+        public void stopLichtRegeling(int ticksGroen, bool zebrapad)
         {
+            // als aantal groen tikke groter zijn als 0 wordt onderstaande code uitgevoerd 
+            // zo niet gaat deze naar het einde van de ronde
+            if (ticksGroen < 0)
+            {
+                // elke ronde heeft 2 wachtrijen en 2 zebrapaden
+                switch (ronde)
+                {
+                    case 1:
+                        wachtrij1 = 0;
+                        wachtrij2 = 2;
+                        zebrapad1 = 5;
+                        zebrapad2 = 7;
+                        break;
+                        
+                    case 2:
+                        wachtrij1 = 1;
+                        wachtrij2 = 3;
+                        zebrapad1 = 4;
+                        zebrapad2 = 6;
+                        break;
+                }
+
+                firstTick = ticks;
+
+                while (ticks <= firstTick + ticksGroen)
+                {
+                    if (ticks < firstTick + ticksGroen)
+                    {
+                        kruispunt.Wachtrijen[wachtrij1].Light = Light.GREEN;
+                        kruispunt.Wachtrijen[wachtrij2].Light = Light.GREEN;
+                        
+                        if (zebrapad)
+                        {
+                            kruispunt.Wachtrijen[zebrapad1].Light = Light.GREEN;
+                            kruispunt.Wachtrijen[zebrapad2].Light = Light.GREEN;
+                        }
+                    }
+
+                    else
+                    {
+                        kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE;
+                        kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
+
+                        if (zebrapad)
+                        {
+                            kruispunt.Wachtrijen[zebrapad1].Light = Light.RED;
+                            kruispunt.Wachtrijen[zebrapad2].Light = Light.RED;
+                        }
+                    }
+                }
+            }
+
+            // einde van de ronde
+            if (ronde < 2)
+            { 
+                ronde++; 
+            }
+
+            else
+            { 
+                ronde = 0; 
+            }
         }
     }
 }
