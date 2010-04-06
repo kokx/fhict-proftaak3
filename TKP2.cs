@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using fhict_proftaak3.Componenten;
 
 namespace fhict_proftaak3
 {
@@ -28,28 +29,29 @@ namespace fhict_proftaak3
 
         public override void NieuweStatus()
         {
-            aantalAutos = Convert.ToInt32(numericUpDown1.Value + numericUpDown2.Value + numericUpDown3.Value +
-            numericUpDown4.Value + numericUpDown5.Value + numericUpDown6.Value);
-
-            status++;
-            switch (status)
-            {
-                case 1:
-                    NoodStop();
-                    tStoplicht4.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    tStoplicht6.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    break;
-                case 2:
-                    NoodStop();
-                    tStoplicht2.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    tStoplicht8.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    break;
-                case 3:
-                    NoodStop();
-                    tStoplicht3.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    tStoplicht9.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    status = 0;
-                    break;
+            foreach (KruispuntWachtrij wachtrij in kruispunt.Wachtrijen) {
+                switch (wachtrij.From) {
+                    case Direction.NORTH:
+                        tStoplicht6.Kleur = GetKleur(wachtrij);
+                        break;
+                    case Direction.SOUTH:
+                        tStoplicht4.Kleur = GetKleur(wachtrij);
+                        break;
+                    case Direction.EAST:
+                        if (wachtrij.HasDirection(Direction.SOUTH)) {
+                            tStoplicht9.Kleur = GetKleur(wachtrij);
+                        } else {
+                            tStoplicht8.Kleur = GetKleur(wachtrij);
+                        }
+                        break;
+                    case Direction.WEST:
+                        if (wachtrij.HasDirection(Direction.NORTH)) {
+                            tStoplicht3.Kleur = GetKleur(wachtrij);
+                        } else {
+                            tStoplicht2.Kleur = GetKleur(wachtrij);
+                        }
+                        break;
+                }
             }
         }
 
