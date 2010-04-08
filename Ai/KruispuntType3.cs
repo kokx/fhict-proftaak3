@@ -9,6 +9,7 @@ namespace fhict_proftaak3.Ai
     public class KruispuntType3 : IKruispuntType
     {
         private int ticks;
+        private int ticksGroen;
         private int firstTick;
         private int wachtrij1;
         private int wachtrij2;
@@ -25,7 +26,8 @@ namespace fhict_proftaak3.Ai
             this.kruispunt = kruispunt;
         }
 
-        public void stopLichtRegeling(int ticksGroen, bool zebrapad)
+
+        public void stopLichtRegeling(bool zebrapad)
         {
             // als aantal groen tikke groter zijn als 0 wordt onderstaande code uitgevoerd 
             // zo niet gaat deze naar het einde van de ronde
@@ -49,6 +51,12 @@ namespace fhict_proftaak3.Ai
                         break;
                 }
 
+                // aantal groen tikken worden bepaalt door het gemiddelde aantal auto's dat voor een groen 
+                // ligt staat
+                ticksGroen = kruispunt.Wachtrijen[wachtrij1].Autos.Count +
+                    kruispunt.Wachtrijen[wachtrij2].Autos.Count / 2;
+
+                // hier worden de stoplichten van een ronde voor een bepaalt aantal tikken groen
                 firstTick = ticks;
 
                 while (ticks <= firstTick + ticksGroen)
