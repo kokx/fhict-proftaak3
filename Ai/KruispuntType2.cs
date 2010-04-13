@@ -9,6 +9,7 @@ namespace fhict_proftaak3.Ai
     public class KruispuntType2 : IKruispuntType
     {
         private int ticks;
+        private int ticksGroen;
         private int firstTick;
         private int wachtrij1;
         private int wachtrij2;
@@ -23,7 +24,7 @@ namespace fhict_proftaak3.Ai
             this.kruispunt = kruispunt;
         }
 
-        public void stopLichtRegeling(int ticksGroen)
+        public void stopLichtRegeling()
         {
             // onder staande code wordt uitgevoerd als groentikken voor een ronde groter zijn als 0
             // zo niet gaat deze naar het einde van de ronde
@@ -109,6 +110,19 @@ namespace fhict_proftaak3.Ai
                     }
                 }
 
+                // aantal groen tikken worden bepaalt door het gemiddelde aantal auto's dat voor een groen 
+                // ligt staat alleen de ronde van de zebrapaden heeft een vaste waarde 
+                if (ronde = 3) 
+                {
+                    ticksGroen = 10;
+                }
+
+                else
+                {
+                    ticksGroen = kruispunt.Wachtrijen[wachtrij1].Autos.Count +
+                    kruispunt.Wachtrijen[wachtrij2].Autos.Count / 2;
+                }
+
                 // hier worden de stoplichten van een ronde voor een bepaalt aantal tikken groen
                 firstTick = ticks;
 
@@ -121,8 +135,21 @@ namespace fhict_proftaak3.Ai
                     }
                     else
                     {
-                        kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE;
-                        kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
+                        if (wachtrij1 = 6)
+                        {
+                            kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;
+                        }
+
+                        if (wachtrij2 = 7)
+                        {
+                            kruispunt.Wachtrijen[wachtrij2].Light = Light.RED;
+                        }
+
+                        else
+                        {
+                            kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE;
+                            kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
+                        }
                     }
                 }
                 kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;
