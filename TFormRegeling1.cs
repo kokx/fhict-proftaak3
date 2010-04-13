@@ -12,6 +12,7 @@ using System.IO;
 
 namespace fhict_proftaak3
 {
+
     public partial class TFormRegeling1 : VerkeersComponentenLibrary.TFormRegeling
     {
         
@@ -113,7 +114,7 @@ namespace fhict_proftaak3
         }
         public static void Log(string Message)
         {
-            File.AppendAllText("C:\\Users\\Chris\\Documents\\logfile.txt", Message + "\r\n");
+            File.AppendAllText("C:\\proftaak\\logfile.txt", Message + "\r\n");
         }
 
         private void button2_Click(object sender, EventArgs e)
