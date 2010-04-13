@@ -12,6 +12,9 @@ namespace fhict_proftaak3.Ai
         private int ticks;
         private Simulator simulator;
         IKruispunt kruispunt;
+
+        private int hoogste;
+        private int second;
         
        
 
@@ -26,30 +29,41 @@ namespace fhict_proftaak3.Ai
 
         public void stopLichtRegeling()
         {
-            if ((simulator.Ticks % 5) == 0) {
-                int hoogste = 0;
-                int second = 0;
+            
+            if (((simulator.Ticks % 7) == 0) || ((simulator.Ticks % 7) == 5)) {
+                Light light;
 
-                for (int i = 0; i < kruispunt.Wachtrijen.Length; i++) {
-                    if (kruispunt.Wachtrijen[i].Count > kruispunt.Wachtrijen[hoogste].Count) {
-                        hoogste = i;
+                if ((simulator.Ticks % 7) == 0) {
+                    light = Light.GREEN;
+
+                    for (int i = 0; i < kruispunt.Wachtrijen.Length; i++)
+                    {
+                        if (kruispunt.Wachtrijen[i].Count > kruispunt.Wachtrijen[hoogste].Count)
+                        {
+                            hoogste = i;
+                        }
                     }
-                }
 
-                if (hoogste % 2 == 0) {
-                    second = hoogste + 1;
+                    if (hoogste % 2 == 0)
+                    {
+                        second = hoogste + 1;
+                    }
+                    else
+                    {
+                        second = hoogste - 1;
+                    }
                 } else {
-                    second = hoogste - 1;
+                    light = Light.ORANGE;
                 }
-
 
                 foreach (KruispuntWachtrij wachtrij in kruispunt.Wachtrijen) {
                     wachtrij.Light = Light.RED;
                 }
 
-                kruispunt.Wachtrijen[hoogste].Light = Light.GREEN;
-                kruispunt.Wachtrijen[second].Light = Light.GREEN;
+                kruispunt.Wachtrijen[hoogste].Light = light;
+                kruispunt.Wachtrijen[second].Light = light;
             }
+
         }            
 
     }
