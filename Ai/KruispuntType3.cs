@@ -10,13 +10,6 @@ namespace fhict_proftaak3.Ai
     public class KruispuntType3 : IKruispuntType
     {
         private int ticks;
-        private int ticksGroen;
-        private int firstTick;
-        private int wachtrij1;
-        private int wachtrij2;
-        private int zebrapad1;
-        private int zebrapad2;
-        private int ronde = 0;
         private Simulator simulator;
         IKruispunt kruispunt;
 
@@ -30,81 +23,21 @@ namespace fhict_proftaak3.Ai
         // als er op de knop wordt gedrukt voor een zebrapad word de wachtrij op 1 gezet. 
         public void stopLichtRegeling()
         {
-            // elke ronde heeft 2 wachtrijen en 2 zebrapaden
-            switch (ronde)
-            {
-                case 1:
-                    wachtrij1 = 0;
-                    wachtrij2 = 2;
-                    zebrapad1 = 5;
-                    zebrapad2 = 7;
-                    break;
+            if ((simulator.Ticks % 5) == 0) {
+                int hoogste = 0;
 
-                case 2:
-                    wachtrij1 = 1;
-                    wachtrij2 = 3;
-                    zebrapad1 = 4;
-                    zebrapad2 = 6;
-                    break;
-            }
-
-            // aantal groen tikken worden bepaalt door het gemiddelde aantal auto's dat voor een groen 
-            // ligt staat
-            ticksGroen = kruispunt.Wachtrijen[wachtrij1].Autos.Count +
-                kruispunt.Wachtrijen[wachtrij2].Autos.Count / 2;
-
-            // als aantal groen tikke groter zijn als 0 wordt onderstaande code uitgevoerd 
-            // zo niet gaat deze naar het einde van de ronde
-            if (ticksGroen < 0)
-            {               
-                // hier worden de stoplichten van een ronde voor een bepaalt aantal tikken groen
-                firstTick = ticks;
-
-                while (ticks <= firstTick + ticksGroen)
-                {
-                    if (ticks < firstTick + ticksGroen)
-                    {
-                        kruispunt.Wachtrijen[wachtrij1].Light = Light.GREEN;
-                        kruispunt.Wachtrijen[wachtrij2].Light = Light.GREEN;
-                        
-                        if (kruispunt.Wachtrijen[zebrapad1].Autos.Count > 0)
-                        {
-                            kruispunt.Wachtrijen[zebrapad1].Light = Light.GREEN;                          
-                        }
-                        if (kruispunt.Wachtrijen[zebrapad2].Autos.Count > 0)
-                        {
-                            kruispunt.Wachtrijen[zebrapad2].Light = Light.GREEN;
-                        }
-                    }
-
-                    else
-                    {
-                        kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE;
-                        kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
-
-                        if (kruispunt.Wachtrijen[zebrapad1].Autos.Count > 0)
-                        {
-                            kruispunt.Wachtrijen[zebrapad1].Light = Light.RED;
-                        }
-                        if (kruispunt.Wachtrijen[zebrapad2].Autos.Count > 0)
-                        {
-                            kruispunt.Wachtrijen[zebrapad2].Light = Light.RED;
-                        }
+                for (int i = 0; i < kruispunt.Wachtrijen.Length; i++) {
+                    if (kruispunt.Wachtrijen[i].Count > kruispunt.Wachtrijen[hoogste].Count) {
+                        hoogste = i;
                     }
                 }
-                kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;
-                kruispunt.Wachtrijen[wachtrij2].Light = Light.RED;
-            }
 
-            // einde van de ronde
-            if (ronde < 2)
-            { 
-                ronde++; 
-            }
 
-            else
-            { 
-                ronde = 0; 
+                foreach (KruispuntWachtrij wachtrij in kruispunt.Wachtrijen) {
+                    wachtrij.Light = Light.RED;
+                }
+
+                kruispunt.Wachtrijen[hoogste].Light = Light.GREEN;
             }
         }
     }

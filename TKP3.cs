@@ -34,15 +34,19 @@ namespace fhict_proftaak3
                 switch (wachtrij.From) {
                     case Direction.NORTH:
                         tStoplicht6.Kleur = GetKleur(wachtrij);
+                        numericUpDown4.Value = wachtrij.Count;
                         break;
                     case Direction.SOUTH:
                         tStoplicht4.Kleur = GetKleur(wachtrij);
+                        numericUpDown2.Value = wachtrij.Count;
                         break;
                     case Direction.EAST:
                         tStoplicht5.Kleur = GetKleur(wachtrij);
+                        numericUpDown3.Value = wachtrij.Count;
                         break;
                     case Direction.WEST:
                         tStoplicht3.Kleur = GetKleur(wachtrij);
+                        numericUpDown1.Value = wachtrij.Count;
                         break;
                 }
             }
