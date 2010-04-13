@@ -115,17 +115,40 @@ namespace fhict_proftaak3.Componenten
             return oppositeDirection;
         }
 
+        /// <summary>
+        /// Shuffle the list
+        /// </summary>
+        /// <typeparam name="E">type of the list</typeparam>
+        /// <param name="inputList"></param>
+        /// <returns></returns>
+        private List<E> ShuffleList<E>(List<E> inputList)
+        {
+            List<E> randomList = new List<E>();
+            List<E> copyList = new List<E>(inputList);
+
+            Random r = new Random();
+            int randomIndex = 0;
+            while (copyList.Count > 0) {
+                randomIndex = r.Next(0, copyList.Count);
+                randomList.Add(copyList[randomIndex]);
+                copyList.RemoveAt(randomIndex);
+            }
+
+            return randomList;
+        }
+
 
         /// <summary>
         /// Injecteer autos in de verbindingen
         /// </summary>
         public void Simulate()
         {
+            List<KruispuntDirection> kruispuntenShuffled = ShuffleList<KruispuntDirection>(kruispunten);
             if ((autos.Count * 3) > kruispunten.Count) {
                 // zolang we 3x zo veel autos hierin hebben dan kruispunten,
                 // blijven we er 1 aan elk van de kruispunten toevoegen per
                 // simulatieronde
-                foreach (KruispuntDirection kruispuntDirection in kruispunten) {
+                foreach (KruispuntDirection kruispuntDirection in kruispuntenShuffled) {
                     if (autos.Count > 1) {
                         kruispuntDirection.Kruispunt.addAuto(autos.Dequeue(), getOppositeDirection(kruispuntDirection.Direction));
                     }
@@ -135,7 +158,7 @@ namespace fhict_proftaak3.Componenten
                 // per simulatieronde (random gekozen)
                 Random random = new Random();
 
-                foreach (KruispuntDirection kruispuntDirection in kruispunten) {
+                foreach (KruispuntDirection kruispuntDirection in kruispuntenShuffled) {
                     if ((autos.Count > 1) && (random.Next(0, 2) == 2)) {
                         kruispuntDirection.Kruispunt.addAuto(autos.Dequeue(), getOppositeDirection(kruispuntDirection.Direction));
                     }
