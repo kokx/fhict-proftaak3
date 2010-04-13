@@ -7,10 +7,10 @@ namespace fhict_proftaak3
 {
     public class KruispuntForm : VerkeersComponentenLibrary.TFormKruispunt
     {
-        public IKruispunt Kruispunt {
+        public IKruispunt Component {
             get
             {
-                return kruispunt;
+                return component;
             }
         }
 
@@ -31,7 +31,7 @@ namespace fhict_proftaak3
             return VerkeersComponentenLibrary.TStoplichtKleur.skGeelKnipper;
         }
 
-        protected IKruispunt kruispunt;
+        protected IKruispunt component;
 
         public virtual void NieuweStatus()
         {

@@ -22,14 +22,14 @@ namespace fhict_proftaak3
 
         public TKP2(Componenten.IKruispunt kruispunt)
         {
-            this.kruispunt = kruispunt;
+            this.component = kruispunt;
 
             InitializeComponent();
         }
 
         public override void NieuweStatus()
         {
-            foreach (KruispuntWachtrij wachtrij in kruispunt.Wachtrijen) {
+            foreach (KruispuntWachtrij wachtrij in component.Wachtrijen) {
                 switch (wachtrij.From) {
                     case Direction.NORTH:
                         tStoplicht6.Kleur = GetKleur(wachtrij);

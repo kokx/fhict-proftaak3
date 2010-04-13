@@ -5,18 +5,23 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using fhict_proftaak3.Ai;
 using fhict_proftaak3.Componenten;
 using fhict_proftaak3.Componenten.Kruispunten;
-using fhict_proftaak3.Ai;
 
 namespace fhict_proftaak3
 {
     public partial class TFormRegeling1 : VerkeersComponentenLibrary.TFormRegeling
     {
-        List<VerkeersComponentenLibrary.TFormKruispunt> kruispunten
-            = new List<VerkeersComponentenLibrary.TFormKruispunt>();
+        
+        KruispuntForm nw;
+        KruispuntForm ne;
+        KruispuntForm sw;
+        KruispuntForm se;
 
         public Simulator simulator;
+
+        public Ai.Ai ai;
 
         public TFormRegeling1()
         {
@@ -48,68 +53,63 @@ namespace fhict_proftaak3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Clear kruispunten
-            kruispunten.Clear();
-            for (int i = 0; i < 4; i++)
-            {
-                this.removeKruispuntForm(i);
-            }
             //Toevoegen Locatie 1
             if (comboBox1.Text != "Geen")
             {
-                kruispunten.Add(createKruispunt(comboBox1));
-                this.insertKruispuntForm(0, kruispunten[0], 0, 0, 484, 339);
+                nw = createKruispunt(comboBox1);
+                this.insertKruispuntForm(0, nw, 0, 0, 484, 339);
             }
-            else { kruispunten.Add(null); }
 
             //Toevoegen Locatie 2
             if (comboBox2.Text != "Geen")
             {
-                kruispunten.Add(createKruispunt(comboBox2));
-                this.insertKruispuntForm(1, kruispunten[1], 484, 0, 484, 339);
+                ne = createKruispunt(comboBox2);
+                this.insertKruispuntForm(1, ne, 484, 0, 484, 339);
             }
-            else { kruispunten.Add(null);}
 
             //Toevoegen Locatie 3
             if (comboBox3.Text != "Geen")
             {
-                kruispunten.Add(createKruispunt(comboBox3));
-                this.insertKruispuntForm(2, kruispunten[2], 0, 339, 484, 339);
+                sw = createKruispunt(comboBox3);
+                this.insertKruispuntForm(2, sw, 0, 339, 484, 339);
             }
-            else { kruispunten.Add(null); }
 
             //Toevoegen Locatie 4
             if (comboBox4.Text != "Geen")
             {
-                kruispunten.Add(createKruispunt(comboBox4));
-                this.insertKruispuntForm(3, kruispunten[3], 484, 339, 484, 339);
+                se = createKruispunt(comboBox4);
+                this.insertKruispuntForm(3, se, 484, 339, 484, 339);
             }
-            else { kruispunten.Add(null); }
+
+            simulator.InitMap(nw.Component, ne.Component, sw.Component, se.Component);
+
+            ai = new Ai.Ai(simulator);
         }
 
         void simulator_postSimulate(object sender, EventArgs e)
         {
-            //MessageBox.Show("I am dishonored!");
-
-            foreach (KruispuntForm k in kruispunten)
-            {
-                k.NieuweStatus();
-            }
+            nw.NieuweStatus();
+            ne.NieuweStatus();
+            sw.NieuweStatus();
+            se.NieuweStatus();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            simulator.Simulate(100);
-
-            MessageBox.Show("Simulatie compleet");
+            timer1.Enabled = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            foreach (KruispuntForm k in kruispunten)
-            {
-                k.NoodStop();
-            }
+            ne.NoodStop();
+            nw.NoodStop();
+            se.NoodStop();
+            sw.NoodStop();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            simulator.Simulate();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace fhict_proftaak3
 
         public TKP4(Componenten.IKruispunt kruispunt)
         {
-            this.kruispunt = kruispunt;
+            this.component = kruispunt;
 
             InitializeComponent();
         }
