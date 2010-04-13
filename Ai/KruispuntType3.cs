@@ -12,6 +12,7 @@ namespace fhict_proftaak3.Ai
         private int ticks;
         private Simulator simulator;
         IKruispunt kruispunt;
+        private int hoogste;
 
         public KruispuntType3(IKruispunt kruispunt, Simulator simulator)
         {
@@ -23,21 +24,33 @@ namespace fhict_proftaak3.Ai
         // als er op de knop wordt gedrukt voor een zebrapad word de wachtrij op 1 gezet. 
         public void stopLichtRegeling()
         {
-            if ((simulator.Ticks % 5) == 0) {
-                int hoogste = 0;
+            if (((simulator.Ticks % 7) == 0) || ((simulator.Ticks % 7) == 5))
+            {
+                Light light;
 
-                for (int i = 0; i < kruispunt.Wachtrijen.Length; i++) {
-                    if (kruispunt.Wachtrijen[i].Count > kruispunt.Wachtrijen[hoogste].Count) {
-                        hoogste = i;
+                if ((simulator.Ticks % 7) == 0)
+                {
+                    light = Light.GREEN;
+                    for (int i = 0; i < kruispunt.Wachtrijen.Length; i++)
+                    {
+                        if (kruispunt.Wachtrijen[i].Count > kruispunt.Wachtrijen[hoogste].Count)
+                        {
+                            hoogste = i;
+                        }
                     }
                 }
+                else
+                {
+                    light = Light.ORANGE;
+                }
+
 
 
                 foreach (KruispuntWachtrij wachtrij in kruispunt.Wachtrijen) {
                     wachtrij.Light = Light.RED;
                 }
 
-                kruispunt.Wachtrijen[hoogste].Light = Light.GREEN;
+                kruispunt.Wachtrijen[hoogste].Light = light;
             }
         }
     }
