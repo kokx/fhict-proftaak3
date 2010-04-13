@@ -6,6 +6,7 @@ using fhict_proftaak3.Componenten.Kruispunten;
 
 namespace fhict_proftaak3.Ai
 {
+    [Serializable]
     public class KruispuntType3 : IKruispuntType
     {
         private int ticks;

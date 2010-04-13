@@ -4,6 +4,7 @@ using System.Text;
 
 namespace fhict_proftaak3.Componenten
 {
+    
     /// <summary>
     /// Status van het verkeerslicht van de wachtrij
     /// </summary>
@@ -20,6 +21,7 @@ namespace fhict_proftaak3.Componenten
     /// TODO:
     /// - Implementeer een aantal states voor de auto's
     /// </summary>
+    [Serializable]
     public class KruispuntWachtrij
     {
 

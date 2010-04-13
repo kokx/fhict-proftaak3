@@ -4,6 +4,7 @@ using System.Text;
 
 namespace fhict_proftaak3.Componenten
 {
+    [Serializable]
     public class Auto
     {
         private Random random;

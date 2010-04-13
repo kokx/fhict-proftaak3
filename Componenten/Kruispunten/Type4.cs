@@ -4,6 +4,7 @@ using System.Text;
 
 namespace fhict_proftaak3.Componenten.Kruispunten
 {
+    [Serializable]
     class Type4 : Drieweg
     {
 
