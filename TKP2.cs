@@ -54,19 +54,5 @@ namespace fhict_proftaak3
                 }
             }
         }
-
-        public override void NoodStop()
-        {
-            tStoplicht1.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            tStoplicht2.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            tStoplicht3.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            tStoplicht4.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            tStoplicht5.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            tStoplicht6.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            tStoplicht7.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            tStoplicht8.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            tStoplicht9.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-            tStoplicht10.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skRood;
-        }
     }
 }
