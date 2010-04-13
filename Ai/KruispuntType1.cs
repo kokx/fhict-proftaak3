@@ -34,15 +34,32 @@ namespace fhict_proftaak3.Ai
         {
             ticks = simulator.Ticks / 5;
 
-            int wachtrij1 = (ticks % 4) * 2;
-            int wachtrij2 = wachtrij1 + 1;
+            int hoogste = 0;
+            int second  = 0;
+
+            for (int i = 0; i < kruispunt.Wachtrijen.Length; i++) {
+                if (kruispunt.Wachtrijen[i].Count > kruispunt.Wachtrijen[hoogste].Count)
+                {
+                    hoogste = i;
+                }
+            }
+
+            if (hoogste % 2 == 0)
+            {
+                second = hoogste + 1;
+            }
+            else
+            {
+                second = hoogste - 1;
+            }
+                
 
             foreach (KruispuntWachtrij wachtrij in kruispunt.Wachtrijen) {
                 wachtrij.Light = Light.RED;
             }
 
-            kruispunt.Wachtrijen[wachtrij1].Light = Light.GREEN;
-            kruispunt.Wachtrijen[wachtrij2].Light = Light.GREEN;
+            kruispunt.Wachtrijen[hoogste].Light = Light.GREEN;
+            kruispunt.Wachtrijen[second].Light = Light.GREEN;
         }            
 
     }

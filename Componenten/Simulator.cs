@@ -73,7 +73,7 @@ namespace fhict_proftaak3.Componenten
             // refresh the kruispunten list
             kruispunten = new List<IKruispunt>();
 
-            injector = new Injector(GenerateAutos(1000));
+            injector = new Injector(GenerateAutos(100));
 
             // kruispunt north-west
             kruispunten.Add(nw);
