@@ -52,7 +52,9 @@ namespace fhict_proftaak3.Componenten
 
             auto.kiesRichting(choose);
 
-            getWachtrij(afkomst, auto.Richting).Add(auto);
+            if (afkomst != Direction.NORTH) {
+                getWachtrij(afkomst, auto.Richting).Add(auto);
+            }
         }
 
         public KruispuntWachtrij getWachtrij(Direction afkomst, Direction richting)

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using fhict_proftaak3.Componenten;
 
 namespace fhict_proftaak3
 {
@@ -28,22 +29,21 @@ namespace fhict_proftaak3
 
         public override void NieuweStatus()
         {
-            aantalAutos = Convert.ToInt32(numericUpDown1.Value + numericUpDown2.Value
-                + numericUpDown3.Value);
-
-            status++;
-            switch (status)
-            {
-                case 1:
-                    tStoplicht9.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    break;
-                case 2:
-                    tStoplicht3.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    break;
-                case 3:
-                    tStoplicht4.Kleur = VerkeersComponentenLibrary.TStoplichtKleur.skGroen;
-                    status = 0;
-                    break;
+            foreach (KruispuntWachtrij wachtrij in component.Wachtrijen) {
+                switch (wachtrij.From) {
+                    case Direction.SOUTH:
+                        tStoplicht9.Kleur = GetKleur(wachtrij);
+                        numericUpDown2.Value = wachtrij.Count;
+                        break;
+                    case Direction.EAST:
+                        tStoplicht3.Kleur = GetKleur(wachtrij);
+                        numericUpDown3.Value = wachtrij.Count;
+                        break;
+                    case Direction.WEST:
+                        tStoplicht4.Kleur = GetKleur(wachtrij);
+                        numericUpDown1.Value = wachtrij.Count;
+                        break;
+                }
             }
         }
     }

@@ -124,11 +124,19 @@ namespace fhict_proftaak3.Componenten
             se.addKruispunt(sw, Direction.WEST);
             sw.addKruispunt(se, Direction.EAST);
 
-            ne.addKruispunt(se, Direction.SOUTH);
-            se.addKruispunt(ne, Direction.NORTH);
+            if (se is Kruispunten.Type4) {
+                ne.addKruispunt(injector, Direction.SOUTH);
+            } else {
+                ne.addKruispunt(se, Direction.SOUTH);
+                se.addKruispunt(ne, Direction.NORTH);
+            }
 
-            nw.addKruispunt(sw, Direction.SOUTH);
-            sw.addKruispunt(nw, Direction.NORTH);
+            if (sw is Kruispunten.Type4) {
+                nw.addKruispunt(injector, Direction.SOUTH);
+            } else {
+                nw.addKruispunt(sw, Direction.SOUTH);
+                sw.addKruispunt(nw, Direction.NORTH);
+            }
         }
 
         /// <summary>

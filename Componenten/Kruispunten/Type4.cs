@@ -22,7 +22,16 @@ namespace fhict_proftaak3.Componenten.Kruispunten
 
         public override void removeKruispunten()
         {
-            wachtrijen = new KruispuntWachtrij[3];
+            // from SOUTH
+            wachtrijen[0] = new KruispuntWachtrij(new Direction[2] { Direction.EAST, Direction.WEST }, Direction.SOUTH, this);
+            // from EAST
+            wachtrijen[1] = new KruispuntWachtrij(new Direction[2] { Direction.WEST, Direction.SOUTH }, Direction.EAST, this);
+            // from WEST
+            wachtrijen[2] = new KruispuntWachtrij(new Direction[2] { Direction.SOUTH, Direction.EAST }, Direction.WEST, this);
+
+            south = null;
+            east = null;
+            west = null;
         }
     }
 }
