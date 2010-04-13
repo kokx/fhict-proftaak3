@@ -121,20 +121,22 @@ namespace fhict_proftaak3.Componenten
         /// </summary>
         public void Simulate()
         {
-            if ((autos.Count) * 3 > kruispunten.Count) {
+            if ((autos.Count * 3) > kruispunten.Count) {
                 // zolang we 3x zo veel autos hierin hebben dan kruispunten,
                 // blijven we er 1 aan elk van de kruispunten toevoegen per
                 // simulatieronde
                 foreach (KruispuntDirection kruispuntDirection in kruispunten) {
-                    kruispuntDirection.Kruispunt.addAuto(autos.Dequeue(), getOppositeDirection(kruispuntDirection.Direction));
+                    if (autos.Count > 1) {
+                        kruispuntDirection.Kruispunt.addAuto(autos.Dequeue(), getOppositeDirection(kruispuntDirection.Direction));
+                    }
                 }
             } else {
-                // we voegen maar aan 1.3 van de kruispunten een auto toe
+                // we voegen maar aan 1/3 van de kruispunten een auto toe
                 // per simulatieronde (random gekozen)
                 Random random = new Random();
 
                 foreach (KruispuntDirection kruispuntDirection in kruispunten) {
-                    if (random.Next(0, 2) == 2) {
+                    if ((autos.Count > 1) && (random.Next(0, 2) == 2)) {
                         kruispuntDirection.Kruispunt.addAuto(autos.Dequeue(), getOppositeDirection(kruispuntDirection.Direction));
                     }
                 }

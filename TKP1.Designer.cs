@@ -171,7 +171,6 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Enabled = false;
             this.numericUpDown2.Location = new System.Drawing.Point(84, 200);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(34, 20);

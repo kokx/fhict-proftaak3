@@ -52,16 +52,8 @@ namespace fhict_proftaak3.Ai
 
         private void checkState()
         {
-            foreach (IKruispunt kruispunt in simulator.Kruispunten) {
-                // we can't set anything on the injector
-                if (kruispunt is Injector) {
-                    continue;
-                }
-
-                
-                    // make the first light green
-                    kruispunt.Wachtrijen[0].Light = Light.GREEN;
-                    firstTick = ticks; 
+            foreach (IKruispuntType kruispuntType in kruispunten) {
+                kruispuntType.stopLichtRegeling();
             }
         }
 

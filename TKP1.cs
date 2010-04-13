@@ -35,29 +35,37 @@ namespace fhict_proftaak3
                     case Direction.NORTH:
                         if (wachtrij.HasDirection(Direction.WEST)) {
                             tStoplicht8.Kleur = GetKleur(wachtrij);
+                            numericUpDown8.Value = wachtrij.Count;
                         } else {
                             tStoplicht7.Kleur = GetKleur(wachtrij);
+                            numericUpDown7.Value = wachtrij.Count;
                         }
                         break;
                     case Direction.SOUTH:
                         if (wachtrij.HasDirection(Direction.EAST)) {
                             tStoplicht4.Kleur = GetKleur(wachtrij);
+                            numericUpDown4.Value = wachtrij.Count;
                         } else {
                             tStoplicht3.Kleur = GetKleur(wachtrij);
+                            numericUpDown3.Value = wachtrij.Count;
                         }
                         break;
                     case Direction.EAST:
                         if (wachtrij.HasDirection(Direction.NORTH)) {
                             tStoplicht6.Kleur = GetKleur(wachtrij);
+                            numericUpDown6.Value = wachtrij.Count;
                         } else {
                             tStoplicht5.Kleur = GetKleur(wachtrij);
+                            numericUpDown5.Value = wachtrij.Count;
                         }
                         break;
                     case Direction.WEST:
                         if (wachtrij.HasDirection(Direction.SOUTH)) {
                             tStoplicht2.Kleur = GetKleur(wachtrij);
+                            numericUpDown2.Value = wachtrij.Count;
                         } else {
                             tStoplicht1.Kleur = GetKleur(wachtrij);
+                            numericUpDown1.Value = wachtrij.Count;
                         }
                         break;
                 }

@@ -113,11 +113,12 @@ namespace fhict_proftaak3.Ai
             // ligt staat alleen de ronde van de zebrapaden heeft een vaste waarde 
             if (ronde == 3)
             {
-                if (kruispunt.Wachtrijen[6].Autos.Count > 0 || kruispunt.Wachtrijen[7].Autos.Count > 0 )
-                { ticksGroen = 10; }
+                //if (kruispunt.Wachtrijen[6].Autos.Count > 0 || kruispunt.Wachtrijen[7].Autos.Count > 0 )
+                //{ ticksGroen = 10; }
 
-                else
-                { ticksGroen = 0; }
+                //else
+                //{ ticksGroen = 0; }
+                ticksGroen = 10;
             }
 
             else
@@ -164,7 +165,7 @@ namespace fhict_proftaak3.Ai
             }
 
             // het einde van de ronde
-            if (ronde < 4)
+            if (ronde < 3)
             {
                 ronde++;
             }

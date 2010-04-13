@@ -73,7 +73,7 @@ namespace fhict_proftaak3.Componenten
             // refresh the kruispunten list
             kruispunten = new List<IKruispunt>();
 
-            injector = new Injector(GenerateAutos(100));
+            injector = new Injector(GenerateAutos(1000));
 
             // kruispunt north-west
             kruispunten.Add(nw);
@@ -113,7 +113,7 @@ namespace fhict_proftaak3.Componenten
             injector.addKruispunt(se, Direction.WEST);
 
             se.addKruispunt(injector, Direction.SOUTH);
-            se.addKruispunt(injector, Direction.WEST);
+            se.addKruispunt(injector, Direction.EAST);
 
             // ok, we got the basic setup, now add the roads between them
 
@@ -180,7 +180,7 @@ namespace fhict_proftaak3.Componenten
             injector.addKruispunt(se, Direction.WEST);
 
             se.addKruispunt(injector, Direction.SOUTH);
-            se.addKruispunt(injector, Direction.WEST);
+            se.addKruispunt(injector, Direction.EAST);
 
             // ok, we got the basic setup, now add the roads between them
 
@@ -218,6 +218,8 @@ namespace fhict_proftaak3.Componenten
             }
 
             ticks++;
+
+            injector.Simulate();
 
             foreach (IKruispunt kruispunt in kruispunten) {
                 kruispunt.Simulate();

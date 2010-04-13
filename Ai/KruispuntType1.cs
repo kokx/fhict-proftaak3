@@ -32,119 +32,17 @@ namespace fhict_proftaak3.Ai
 
         public void stopLichtRegeling()
         {
-            // onderstaande code wordt uitgevoerd als aantal groentikken groter zijn als 0
-            // zo niet gaat deze naar het einde van de ronde
-            if (ticksGroen > 0)
-            {
+            ticks = simulator.Ticks / 5;
 
-            firstTick = ticks;
-            wachtrij3 = wachtrij1--;
-            if (wachtrij3 == -1)
-            {
-                wachtrij3 = 8;
+            int wachtrij1 = (ticks % 4) * 2;
+            int wachtrij2 = wachtrij1 + 1;
+
+            foreach (KruispuntWachtrij wachtrij in kruispunt.Wachtrijen) {
+                wachtrij.Light = Light.RED;
             }
 
-            // Als er bij het eerst wachtrij geen auto's zijn wordt een alternatieve wachtrij gekozen 
-            // als daar wel auto's staan.
-            if (kruispunt.Wachtrijen[wachtrij1].Autos.Count == 0)
-            {                
-                if (wachtrij1 == 0)
-                {                     
-                    if (kruispunt.Wachtrijen[5].Autos.Count > 0)
-                    {
-                        wachtrij4 = 5;
-                        geenAutosBij1 = true;
-                    }
-                }
-
-                if (wachtrij1 == 2)
-                {
-                    if (kruispunt.Wachtrijen[1].Autos.Count > 0)
-                    {
-                        wachtrij4 = 1;
-                        geenAutosBij1 = true;
-                    }
-                }
-
-                if (wachtrij1 == 4)
-                {
-                    if (kruispunt.Wachtrijen[1].Autos.Count > 0)
-                    {
-                        wachtrij4 = 1;
-                        geenAutosBij1 = true;
-                    }
-                }
-
-                if (wachtrij1 == 6)
-                {
-                    if (kruispunt.Wachtrijen[5].Autos.Count > 0)
-                    {
-                        wachtrij4 = 5;
-                        geenAutosBij1 = true;
-                    }
-                }
-            }
-            else
-            {
-                geenAutosBij1 = false;
-            }
-
-            // aantal groen tikken worden bepaalt door het gemiddelde aantal auto's dat voor een groen ligt staat
-            if (geenAutosBij1)
-            {
-                ticksGroen = kruispunt.Wachtrijen[wachtrij2].Autos.Count +
-                kruispunt.Wachtrijen[wachtrij3].Autos.Count +
-                kruispunt.Wachtrijen[wachtrij4].Autos.Count / 3;
-            }
-            else
-            {
-                ticksGroen = kruispunt.Wachtrijen[wachtrij1].Autos.Count +
-                kruispunt.Wachtrijen[wachtrij2].Autos.Count +
-                kruispunt.Wachtrijen[wachtrij3].Autos.Count / 3;
-            }
-           
-                while (ticks <= firstTick + ticksGroen)
-                {
-                    if (ticks < firstTick + ticksGroen)
-                    {
-                        if (geenAutosBij1)
-                        { kruispunt.Wachtrijen[wachtrij4].Light = Light.GREEN; }
-                        else
-                        { kruispunt.Wachtrijen[wachtrij1].Light = Light.GREEN; }
-
-                        kruispunt.Wachtrijen[wachtrij2].Light = Light.GREEN;
-                        kruispunt.Wachtrijen[wachtrij3].Light = Light.GREEN;
-
-                    }
-                    else
-                    {
-                        if (geenAutosBij1)
-                        { kruispunt.Wachtrijen[wachtrij4].Light = Light.ORANGE; }
-                        else
-                        { kruispunt.Wachtrijen[wachtrij1].Light = Light.ORANGE; }
-
-                        kruispunt.Wachtrijen[wachtrij2].Light = Light.ORANGE;
-                        kruispunt.Wachtrijen[wachtrij3].Light = Light.ORANGE;
-                    }
-                }
-                kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;
-                kruispunt.Wachtrijen[wachtrij2].Light = Light.RED;
-                kruispunt.Wachtrijen[wachtrij3].Light = Light.RED;
-                kruispunt.Wachtrijen[wachtrij4].Light = Light.RED;                               
-            }
-
-            // einde van de ronde
-            if (wachtrij1 < 6 && wachtrij2 < 7)
-            {
-                wachtrij1 += 2;
-                wachtrij2 += 2;
-            }
-            else
-            {
-                wachtrij1 = 0;
-                wachtrij2 = 1;
-            }
-             
+            kruispunt.Wachtrijen[wachtrij1].Light = Light.GREEN;
+            kruispunt.Wachtrijen[wachtrij2].Light = Light.GREEN;
         }            
 
     }
