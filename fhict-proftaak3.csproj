@@ -130,6 +130,9 @@
     </Compile>
     <Compile Include="TRegelingApplicatie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="KruispuntForm.resx">
+      <DependentUpon>KruispuntForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TKP4.resx">
       <DependentUpon>TKP4.cs</DependentUpon>
       <SubType>Designer</SubType>

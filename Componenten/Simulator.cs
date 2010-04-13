@@ -229,5 +229,18 @@ namespace fhict_proftaak3.Componenten
                 postSimulate(this, new EventArgs());
             }
         }
+
+        public void Noodstop()
+        {
+            foreach (IKruispunt kruispunt in kruispunten)
+            {
+                foreach (KruispuntWachtrij wachtrij in kruispunt.Wachtrijen)
+                {
+                    wachtrij.Light = Light.RED;
+                }
+            }
+
+            postSimulate(this, new EventArgs());
+        }
     }
 }

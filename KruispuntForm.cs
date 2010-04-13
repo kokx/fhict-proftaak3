@@ -27,17 +27,12 @@ namespace fhict_proftaak3
                     return VerkeersComponentenLibrary.TStoplichtKleur.skRood;
                     break;
             }
-            NoodStop();
             return VerkeersComponentenLibrary.TStoplichtKleur.skGeelKnipper;
         }
 
         protected IKruispunt component;
 
         public virtual void NieuweStatus()
-        {
-        }
-
-        public virtual void NoodStop()
         {
         }
     }

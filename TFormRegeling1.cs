@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using fhict_proftaak3.Ai;
 using fhict_proftaak3.Componenten;
 using fhict_proftaak3.Componenten.Kruispunten;
+using System.IO;
 
 namespace fhict_proftaak3
 {
@@ -20,6 +21,8 @@ namespace fhict_proftaak3
         KruispuntForm se;
 
         public Simulator simulator;
+
+        string logline = Convert.ToString(DateTime.Now);
 
         public Ai.Ai ai;
 
@@ -84,6 +87,8 @@ namespace fhict_proftaak3
             simulator.InitMap(nw.Component, ne.Component, sw.Component, se.Component);
 
             ai = new Ai.Ai(simulator);
+
+            button2.Enabled = true;
         }
 
         void simulator_postSimulate(object sender, EventArgs e)
@@ -92,19 +97,36 @@ namespace fhict_proftaak3
             ne.NieuweStatus();
             sw.NieuweStatus();
             se.NieuweStatus();
+
+            string logline = Convert.ToString(DateTime.Now);
+
+            int i = 0;
+            foreach (KruispuntWachtrij wachtrij in nw.Component.Wachtrijen)
+            {
+                i++;
+                logline += ": Wachtrij " + i + ": " + Convert.ToString(wachtrij.Count);
+                  
+            }
+            
+            Log(logline);            
+            
+        }
+        public static void Log(string Message)
+        {
+            File.AppendAllText("C:\\Users\\Chris\\Documents\\logfile.txt", Message + "\r\n");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            button3.Enabled = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ne.NoodStop();
-            nw.NoodStop();
-            se.NoodStop();
-            sw.NoodStop();
+            timer1.Enabled = false;
+
+            simulator.Noodstop();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
