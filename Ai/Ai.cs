@@ -40,7 +40,7 @@ namespace fhict_proftaak3.Ai
 
                 else if (kruispunt is Type4)
                 {
-                    kruispunten.Add(new KruispuntType4());
+                    kruispunten.Add(new KruispuntType4(kruispunt, simulator));
                 }
             }
 

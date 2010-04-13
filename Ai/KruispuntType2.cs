@@ -24,14 +24,10 @@ namespace fhict_proftaak3.Ai
             this.kruispunt = kruispunt;
         }
 
+         // als er op de knop wordt gedrukt voor een zebrapad word de wachtrij op 1 gezet. 
         public void stopLichtRegeling()
         {
-            // onder staande code wordt uitgevoerd als groentikken voor een ronde groter zijn als 0
-            // zo niet gaat deze naar het einde van de ronde
-            if (ticksGroen > 0)
-            {
-
-            //elke ronden heeft 2 wachtrijen
+            // elke ronden heeft 2 wachtrijen            
             switch (ronde)
             {
                 case 0:
@@ -55,74 +51,85 @@ namespace fhict_proftaak3.Ai
                     wachtrij2 = 7;
                     break;
             }
+
+            // als er geen auto's zijn in wachtrij1 wordt een alternatieve 
+            // wachtrij gekozen als daar wel auto's staan
+            if (kruispunt.Wachtrijen[wachtrij1].Autos.Count == 0)
+            {
+                if (wachtrij1 == 0)
+                {
+                    if (kruispunt.Wachtrijen[4].Autos.Count > 0)
+                    { wachtrij1 = 4; }
+                }
+
+                else if (wachtrij1 == 3)
+                {
+                    if (kruispunt.Wachtrijen[3].Autos.Count > 0)
+                    { wachtrij1 = 1; }
+                }
+
+                  // als er niemand bij zebra pad1 staat wordt een andere wachtrij gekozen
+                else if (wachtrij1 == 6)
+                {
+                    if (kruispunt.Wachtrijen[1].Autos.Count > kruispunt.Wachtrijen[3].Autos.Count)
+                    { wachtrij1 = 4; }
+
+                    else
+                    { wachtrij1 = 0; }
+                }
+            }
+
            
-                // als er geen auto's zijn in wachtrij1 wordt een alternatieve 
-                // wachtrij gekozen als daar wel auto's staan
-                if (kruispunt.Wachtrijen[wachtrij1].Autos.Count == 0)
+
+            // als er geen auto's zijn in wachtrij2 wordt een alternatieve 
+            // wachtrij gekozen als daar wel auto's staan
+            if (kruispunt.Wachtrijen[wachtrij2].Autos.Count == 0)
+            {
+                if (wachtrij2 == 1)
                 {
-                    if (wachtrij1 == 0)
-                    { 
-                        if (kruispunt.Wachtrijen[4].Autos.Count > 0)
-                        { wachtrij1 = 4; }
-                    }
-
-                    else if (wachtrij1 == 3)
-                    {
-                        if (kruispunt.Wachtrijen[3].Autos.Count > 0)
-                        { wachtrij1 = 1; }
-                    }
-
-                    // zebra pad1
-                    else if (wachtrij1 == 6)
-                    {
-                        if (kruispunt.Wachtrijen[1].Autos.Count > kruispunt.Wachtrijen[3].Autos.Count)
-                        { wachtrij1 = 4; }
-
-                        else
-                        { wachtrij1 = 0; }
-                    }                    
+                    if (kruispunt.Wachtrijen[3].Autos.Count > 0)
+                    { wachtrij1 = 3; }
                 }
 
-                // als er geen auto's zijn in wachtrij2 wordt een alternatieve 
-                // wachtrij gekozen als daar wel auto's staan
-                if (kruispunt.Wachtrijen[wachtrij2].Autos.Count == 0)
+                else if (wachtrij2 == 4)
                 {
-                    if (wachtrij2 == 1)
-                    {
-                        if (kruispunt.Wachtrijen[3].Autos.Count > 0)
-                        { wachtrij1 = 3; }
-                    }
-
-                    else if (wachtrij2 == 4)
-                    {
-                        if (kruispunt.Wachtrijen[0].Autos.Count > 0)
-                        { wachtrij1 = 0; }
-                    }
-
-                    // zebra pad2
-                    else if (wachtrij2 == 7)
-                    {
-                        if (kruispunt.Wachtrijen[4].Autos.Count > kruispunt.Wachtrijen[0].Autos.Count)
-                        { wachtrij1 = 4; }
-
-                        else
-                        { wachtrij1 = 0; }
-                    }
+                    if (kruispunt.Wachtrijen[0].Autos.Count > 0)
+                    { wachtrij1 = 0; }
                 }
 
-                // aantal groen tikken worden bepaalt door het gemiddelde aantal auto's dat voor een groen 
-                // ligt staat alleen de ronde van de zebrapaden heeft een vaste waarde 
-                if (ronde = 3) 
+                  // als er niemand bij zebra pad2 staat wordt een andere wachtrij gekozen
+                else if (wachtrij2 == 7)
                 {
-                    ticksGroen = 10;
+                    if (kruispunt.Wachtrijen[4].Autos.Count > kruispunt.Wachtrijen[0].Autos.Count)
+                    { wachtrij1 = 4; }
+
+                    else
+                    { wachtrij1 = 0; }
                 }
+            }
+           
+
+            // aantal groen tikken worden bepaalt door het gemiddelde aantal auto's dat voor een groen 
+            // ligt staat alleen de ronde van de zebrapaden heeft een vaste waarde 
+            if (ronde == 3)
+            {
+                if (kruispunt.Wachtrijen[6].Autos.Count > 0 || kruispunt.Wachtrijen[7].Autos.Count > 0 )
+                { ticksGroen = 10; }
 
                 else
-                {
-                    ticksGroen = kruispunt.Wachtrijen[wachtrij1].Autos.Count +
-                    kruispunt.Wachtrijen[wachtrij2].Autos.Count / 2;
-                }
+                { ticksGroen = 0; }
+            }
 
+            else
+            {
+                ticksGroen = kruispunt.Wachtrijen[wachtrij1].Autos.Count +
+                kruispunt.Wachtrijen[wachtrij2].Autos.Count / 2;
+            }
+
+            // onder staande code wordt uitgevoerd als groentikken voor een ronde groter zijn als 0
+            // zo niet gaat deze naar het einde van de ronde
+            if (ticksGroen > 0)              
+            {
                 // hier worden de stoplichten van een ronde voor een bepaalt aantal tikken groen
                 firstTick = ticks;
 
@@ -135,12 +142,12 @@ namespace fhict_proftaak3.Ai
                     }
                     else
                     {
-                        if (wachtrij1 = 6)
+                        if (wachtrij1 == 6)
                         {
                             kruispunt.Wachtrijen[wachtrij1].Light = Light.RED;
                         }
 
-                        if (wachtrij2 = 7)
+                        if (wachtrij2 == 7)
                         {
                             kruispunt.Wachtrijen[wachtrij2].Light = Light.RED;
                         }
