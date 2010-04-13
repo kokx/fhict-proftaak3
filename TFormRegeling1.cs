@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using fhict_proftaak3.Ai;
 using fhict_proftaak3.Componenten;
 using fhict_proftaak3.Componenten.Kruispunten;
-using System.IO;
 
 namespace fhict_proftaak3
 {
@@ -25,6 +26,8 @@ namespace fhict_proftaak3
 
         string logline = Convert.ToString(DateTime.Now);
 
+        public EventHandler postSimulateEvent;
+
         public Ai.Ai ai;
 
         public TFormRegeling1()
@@ -33,7 +36,9 @@ namespace fhict_proftaak3
 
             simulator = new Simulator();
 
-            simulator.postSimulate += new EventHandler(simulator_postSimulate);
+            postSimulateEvent = new EventHandler(simulator_postSimulate);
+
+            simulator.postSimulate += postSimulateEvent;
         }
 
         private KruispuntForm createKruispunt(ComboBox comboBox)
@@ -133,6 +138,49 @@ namespace fhict_proftaak3
         private void timer1_Tick(object sender, EventArgs e)
         {
             simulator.Simulate();
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            bool enabled = timer1.Enabled;
+            timer1.Enabled = false;
+
+            simulator.postSimulate -= postSimulateEvent;
+
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "simulatiebestand (*.sim)|*.sim";
+            saveDialog.CheckPathExists = true;
+            saveDialog.Title = "Kies een bestand om op te slaan";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileStream bestand = File.OpenWrite(saveDialog.FileName);
+                //try
+                //{
+                    BinaryFormatter formatter = new BinaryFormatter();
+
+
+                    formatter.Serialize(bestand, simulator);
+                    formatter.Serialize(bestand, nw.Component);
+                    formatter.Serialize(bestand, ne.Component);
+                    formatter.Serialize(bestand, se.Component);
+                    formatter.Serialize(bestand, sw.Component);
+                    formatter.Serialize(bestand, ai);
+
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show("Er is een fout opgetreden bij het opslaan!");
+                //}
+            }
+            simulator.postSimulate += postSimulateEvent;
+            timer1.Enabled = enabled;
+
+        }
+
+        private void load_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

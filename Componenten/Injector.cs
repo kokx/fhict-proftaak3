@@ -37,6 +37,7 @@ namespace fhict_proftaak3.Componenten
     /// <summary>
     /// Injector implementatie van een kruispunt
     /// </summary>
+    [Serializable]
     public class Injector : IKruispunt
     {
 

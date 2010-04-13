@@ -41,6 +41,8 @@ namespace fhict_proftaak3
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.load = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -176,11 +178,33 @@ namespace fhict_proftaak3
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // load
+            // 
+            this.load.Location = new System.Drawing.Point(1077, 612);
+            this.load.Name = "load";
+            this.load.Size = new System.Drawing.Size(75, 47);
+            this.load.TabIndex = 12;
+            this.load.Text = "Load";
+            this.load.UseVisualStyleBackColor = true;
+            this.load.Click += new System.EventHandler(this.load_Click);
+            // 
+            // save
+            // 
+            this.save.Location = new System.Drawing.Point(1077, 559);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(75, 47);
+            this.save.TabIndex = 13;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // TFormRegeling1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 684);
+            this.Controls.Add(this.save);
+            this.Controls.Add(this.load);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -205,6 +229,8 @@ namespace fhict_proftaak3
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.button3, 0);
+            this.Controls.SetChildIndex(this.load, 0);
+            this.Controls.SetChildIndex(this.save, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,6 +250,8 @@ namespace fhict_proftaak3
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button load;
+        private System.Windows.Forms.Button save;
 
     }
 }
