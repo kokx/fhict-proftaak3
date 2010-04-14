@@ -85,7 +85,63 @@ namespace fhict_proftaak3.Componenten
 
         public void Simulate()
         {
-            // TODO: finish this method
+            Auto auto;
+            foreach (KruispuntWachtrij wachtrij in wachtrijen) {
+                if (null == wachtrij) {
+                    continue;
+                }
+                switch (wachtrij.Light) {
+                    case Light.ORANGE:
+                        // we should involve a random number to determine if
+                        // the car should drive through or not
+                        Random random = new Random();
+
+                        if (random.Next(0, 3) != 1) { // one in four chance
+                            auto = wachtrij.Pop();
+
+                            if (null == auto) {
+                                break;
+                            }
+
+                            switch (auto.Richting) {
+                                case Direction.SOUTH:
+                                    south.addAuto(auto, Direction.NORTH);
+                                    break;
+                                case Direction.EAST:
+                                    east.addAuto(auto, Direction.WEST);
+                                    break;
+                                case Direction.WEST:
+                                    west.addAuto(auto, Direction.EAST);
+                                    break;
+                            }
+                        }
+                        break;
+                    case Light.GREEN:
+                        // ok, great, pop the car from the Queue and let it
+                        // drive through
+                        auto = wachtrij.Pop();
+
+                        if (null == auto) {
+                            break;
+                        }
+
+                        switch (auto.Richting) {
+                            case Direction.SOUTH:
+                                south.addAuto(auto, Direction.NORTH);
+                                break;
+                            case Direction.EAST:
+                                east.addAuto(auto, Direction.WEST);
+                                break;
+                            case Direction.WEST:
+                                west.addAuto(auto, Direction.EAST);
+                                break;
+                        }
+                        break;
+                    case Light.RED:
+                        // don't move the car
+                        break;
+                }
+            }
         }
     }
 }
